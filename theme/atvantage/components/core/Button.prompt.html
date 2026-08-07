@@ -34,32 +34,39 @@
 <title>ATVANTAGE Academy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1786080146"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1786080146">
-<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1786080146">
-<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1786080146">
-<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1786080146">
-<script src="/academy-online/theme/academy/atvantage.js?v=1786080146" defer></script>
-<script src="/academy-online/theme/jekyll/site.js?v=1786080146" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1786082290"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1786082290">
+<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1786082290">
+<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1786082290">
+<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1786082290">
+<script src="/academy-online/theme/academy/atvantage.js?v=1786082290" defer></script>
+<script src="/academy-online/theme/jekyll/site.js?v=1786082290" defer></script>
 <link rel="icon" href="/academy-online/theme/atvantage/assets/logo-orange.svg">
 
-  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1786080146">
+  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1786082290">
 </head>
 <body class="avd-academy-guide">
   <a class="avd-academy-skip-link" href="#avd-academy-content">Zum Inhalt springen</a>
 
   <div class="avd-academy-metanav">
-    <span>Weiterbildung, die zur Selbsthilfe befaehigt.</span>
+    <span>Weiterbildung, die zur Selbsthilfe befähigt.</span>
   </div>
 
   <header class="avd-academy-header">
   <a class="avd-academy-header__brand" href="/academy-online/" aria-label="Startseite">
     <img class="avd-academy-header__logo"
-         src="/academy-online/theme/atvantage/assets/logo-white.svg"
+         src="/academy-online/theme/atvantage/assets/logo-orange.svg"
          alt="ATVANTAGE Academy">
   </a>
   <button class="avd-academy-btn avd-academy-btn--ghost avd-academy-header__burger" data-avd-academy-nav-toggle="#avd-academy-main-nav"
           aria-label="Navigation umschalten" aria-expanded="false">☰</button>
-  <nav class="avd-academy-header__nav" id="avd-academy-main-nav"><a href="/academy-online/">Start</a><a href="/academy-online/didaktisches-manifest.html">Didaktisches Manifest</a><a href="/academy-online/team/">Team</a>
+  <nav class="avd-academy-header__nav" id="avd-academy-main-nav"><a href="/academy-online/">Start</a><a href="/academy-online/didaktisches-manifest.html">Didaktisches Manifest</a><div class="avd-academy-header__group" data-avd-academy-menu>
+        <button type="button" class="avd-academy-header__grouptoggle"
+                aria-expanded="false" aria-haspopup="true">Team<span class="avd-academy-header__caret" aria-hidden="true">▾</span></button>
+        <div class="avd-academy-header__submenu" role="menu">
+          <a role="menuitem" href="/academy-online/team/ray-wojciechowski.html">Ray Wojciechowski</a>
+          <a role="menuitem" href="/academy-online/team/ralf-ueberfuhr.html">Ralf Ueberfuhr</a>
+        </div>
+      </div>
     <button class="avd-academy-btn avd-academy-btn--ghost" data-avd-academy-theme-toggle
             aria-label="Farbschema umschalten">◐</button>
   </nav>
@@ -119,7 +126,7 @@ Props: `variant` (primary|inverted), `size` (sm|md|lg), `disabled`.</textarea>
   <div class="avd-academy-footer__grid">
     <div>
       <strong>ATVANTAGE Academy</strong>
-      <p>Weiterbildung, die zur Selbsthilfe befaehigt.</p>
+      <p>Weiterbildung, die zur Selbsthilfe befähigt.</p>
     </div>
     <div>
       <strong>Kontakt</strong>
@@ -128,8 +135,7 @@ Props: `variant` (primary|inverted), `size` (sm|md|lg), `disabled`.</textarea>
     </div>
     <div>
       <strong>Mehr</strong>
-      <p><a href="https://www.atvantage.com/leistungen/schulungsangebot">Website</a><br><a href="https://www.atvantage.com/leistungen/schulungsangebot/individuelle-trainings">Bildungskatalog</a>
-      </p>
+      <p><a href="https://www.atvantage.com/leistungen/schulungsangebot">Website</a></p>
     </div>
   </div>
   <div class="avd-academy-footer__legal">
