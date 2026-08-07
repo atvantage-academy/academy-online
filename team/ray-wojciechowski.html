@@ -34,15 +34,15 @@
 <title>Ray Wojciechowski · ATVANTAGE Academy</title>
 <meta name="description" content="Lebenslauf — Ray Wojciechowski, Leiter der ATVANTAGE Academy."><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1786090520"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1786090520">
-<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1786090520">
-<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1786090520">
-<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1786090520"><link rel="stylesheet" href="/academy-online/theme/academy/print.css?v=1786090520">
-<script src="/academy-online/theme/academy/atvantage.js?v=1786090520" defer></script>
-<script src="/academy-online/theme/jekyll/site.js?v=1786090520" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1786091326"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1786091326">
+<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1786091326">
+<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1786091326">
+<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1786091326"><link rel="stylesheet" href="/academy-online/theme/academy/print.css?v=1786091326">
+<script src="/academy-online/theme/academy/atvantage.js?v=1786091326" defer></script>
+<script src="/academy-online/theme/jekyll/site.js?v=1786091326" defer></script>
 <link rel="icon" href="/academy-online/theme/atvantage/assets/logo-orange.svg">
 
-  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1786090520">
+  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1786091326">
 </head>
 <body class="avd-academy-guide">
   <a class="avd-academy-skip-link" href="#avd-academy-content">Zum Inhalt springen</a>
@@ -180,6 +180,30 @@ Trainingstagen pro Jahr.</p>
     <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" /></svg>
   </a>
 </p>
+
+<!--
+  Rundes Profilbild links neben dem Namen im Hero (grauer Bereich).
+  Bewusst am Dateiende: so bleibt die Body-Ueberschrift `# …` das erste Kind des
+  Inhalts und wird vom Theme ausgeblendet (der Titel steht bereits im Hero).
+  Nicht Teil des Drucklayouts (@media print).
+-->
+<style>
+.avd-academy-guide-hero h1::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 4.25rem;
+  height: 4.25rem;
+  margin-right: 1rem;
+  border-radius: 50%;
+  background: url('/academy-online/team/img/ray-wojciechowski.jpg') center / cover no-repeat;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 6px rgba(0, 0, 0, .18);
+}
+@media print {
+  .avd-academy-guide-hero h1::before { display: none !important; }
+}
+</style>
+
 <textarea id="avd-academy-md-source" hidden aria-hidden="true"># Ray Wojciechowski
 
 **Leiter der ATVANTAGE Academy**
@@ -235,6 +259,29 @@ Trainingstagen pro Jahr.
     &lt;svg aria-hidden=&quot;true&quot; width=&quot;30&quot; height=&quot;30&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;currentColor&quot; style=&quot;vertical-align:middle&quot;&gt;&lt;path d=&quot;M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z&quot;/&gt;&lt;/svg&gt;
   &lt;/a&gt;
 &lt;/p&gt;
+
+&lt;!--
+  Rundes Profilbild links neben dem Namen im Hero (grauer Bereich).
+  Bewusst am Dateiende: so bleibt die Body-Ueberschrift `# …` das erste Kind des
+  Inhalts und wird vom Theme ausgeblendet (der Titel steht bereits im Hero).
+  Nicht Teil des Drucklayouts (@media print).
+--&gt;
+&lt;style&gt;
+.avd-academy-guide-hero h1::before {
+  content: &quot;&quot;;
+  display: inline-block;
+  vertical-align: middle;
+  width: 4.25rem;
+  height: 4.25rem;
+  margin-right: 1rem;
+  border-radius: 50%;
+  background: url(&apos;{{ &quot;/team/img/ray-wojciechowski.jpg&quot; | relative_url }}&apos;) center / cover no-repeat;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 6px rgba(0, 0, 0, .18);
+}
+@media print {
+  .avd-academy-guide-hero h1::before { display: none !important; }
+}
+&lt;/style&gt;
 
 ## Weiterführende Informationen
 

@@ -34,15 +34,15 @@
 <title>Ralf Ueberfuhr · ATVANTAGE Academy</title>
 <meta name="description" content="Lebenslauf — Ralf Ueberfuhr, Trainer der ATVANTAGE Academy."><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1786090520"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1786090520">
-<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1786090520">
-<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1786090520">
-<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1786090520"><link rel="stylesheet" href="/academy-online/theme/academy/print.css?v=1786090520">
-<script src="/academy-online/theme/academy/atvantage.js?v=1786090520" defer></script>
-<script src="/academy-online/theme/jekyll/site.js?v=1786090520" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1786091326"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1786091326">
+<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1786091326">
+<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1786091326">
+<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1786091326"><link rel="stylesheet" href="/academy-online/theme/academy/print.css?v=1786091326">
+<script src="/academy-online/theme/academy/atvantage.js?v=1786091326" defer></script>
+<script src="/academy-online/theme/jekyll/site.js?v=1786091326" defer></script>
 <link rel="icon" href="/academy-online/theme/atvantage/assets/logo-orange.svg">
 
-  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1786090520">
+  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1786091326">
 </head>
 <body class="avd-academy-guide">
   <a class="avd-academy-skip-link" href="#avd-academy-content">Zum Inhalt springen</a>
@@ -162,6 +162,30 @@ Jakarta EE / Quarkus.</p>
 </p>
 
 <p>Weitere: <a href="https://ueberfuhr-tutorials.github.io/">Java-Tutorials</a></p>
+
+<!--
+  Rundes Profilbild links neben dem Namen im Hero (grauer Bereich).
+  Bewusst am Dateiende: so bleibt die Body-Ueberschrift `# …` das erste Kind des
+  Inhalts und wird vom Theme ausgeblendet (der Titel steht bereits im Hero).
+  Nicht Teil des Drucklayouts (@media print).
+-->
+<style>
+.avd-academy-guide-hero h1::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 4.25rem;
+  height: 4.25rem;
+  margin-right: 1rem;
+  border-radius: 50%;
+  background: url('/academy-online/team/img/ralf-ueberfuhr.png') center / cover no-repeat;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 6px rgba(0, 0, 0, .18);
+}
+@media print {
+  .avd-academy-guide-hero h1::before { display: none !important; }
+}
+</style>
+
 <textarea id="avd-academy-md-source" hidden aria-hidden="true"># Ralf Ueberfuhr
 
 **Trainer der ATVANTAGE Academy**
@@ -215,6 +239,29 @@ Jakarta EE / Quarkus.
 &lt;/p&gt;
 
 Weitere: [Java-Tutorials](https://ueberfuhr-tutorials.github.io/)
+
+&lt;!--
+  Rundes Profilbild links neben dem Namen im Hero (grauer Bereich).
+  Bewusst am Dateiende: so bleibt die Body-Ueberschrift `# …` das erste Kind des
+  Inhalts und wird vom Theme ausgeblendet (der Titel steht bereits im Hero).
+  Nicht Teil des Drucklayouts (@media print).
+--&gt;
+&lt;style&gt;
+.avd-academy-guide-hero h1::before {
+  content: &quot;&quot;;
+  display: inline-block;
+  vertical-align: middle;
+  width: 4.25rem;
+  height: 4.25rem;
+  margin-right: 1rem;
+  border-radius: 50%;
+  background: url(&apos;{{ &quot;/team/img/ralf-ueberfuhr.png&quot; | relative_url }}&apos;) center / cover no-repeat;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 6px rgba(0, 0, 0, .18);
+}
+@media print {
+  .avd-academy-guide-hero h1::before { display: none !important; }
+}
+&lt;/style&gt;
 
 ## Weiterführende Informationen
 
