@@ -171,6 +171,17 @@
 .avd-academy-header__grouptoggle:hover,
 .avd-academy-header__group:focus-within .avd-academy-header__grouptoggle { color: var(--avd-orange); }
 .avd-academy-header__caret { font-size: 11px; line-height: 1; }
+/* Inline-Icon in Link-Labels (TopNav, Footer, Ressourcen). Quadratische Quellbilder
+   werden — wie GitHub-Profilbilder — KREISRUND dargestellt (quadratisch + border-radius
+   50% + object-fit: cover). */
+.avd-academy-linkicon {
+  width: 1.15em; height: 1.15em; vertical-align: -0.2em;
+  display: inline-block; object-fit: cover; border-radius: 50%; flex: none;
+}
+.avd-academy-linkicon:not(:last-child) { margin-right: 0.4em; }
+/* Ressourcen-Sidebar: Icon rechts, etwas größer (avatarartig). */
+.avd-academy-guide-side__links a { display: flex; align-items: center; gap: 0.5rem; }
+.avd-academy-linkicon--right { margin-left: auto; margin-right: 0; width: 1.6em; height: 1.6em; }
 .avd-academy-header__submenu {
   display: none; position: absolute; top: 100%; left: 0;
   min-width: 210px; margin-top: 8px; padding: 8px 0;

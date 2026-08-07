@@ -20,7 +20,9 @@
                                        automatische Prev/Next-Navigation zwischen
                                        gleichartigen Geschwister-Seiten.
     topics:      ["Cloud & DevOps"] → weitere Hero-Tags
-    resources:   [{titel, url}, …]  → Sidebar-Karte „Weiterführende Informationen"
+    resources:   [{titel, url, icon}, …] → Sidebar-Karte „Weiterführende Informationen".
+                                       titel und/oder icon (Bildpfad); icon erscheint
+                                       rechts und wird kreisrund dargestellt.
     breadcrumb:  [{title, url}, …]  → überschreibt die aus dem Ordner abgeleiteten Brotkrumen
     zurueck / weiter: {title, url}  → explizite Prev/Next-Links (sonst automatisch)
 
@@ -34,21 +36,21 @@
 <title>ATVANTAGE Academy</title>
 <meta name="description" content="Use this skill to generate well-branded interfaces and assets for ATVANTAGE, either for production or throwaway prototypes/mocks/etc. Contains essential design guidelines, colors, type, fonts, assets, and UI kit components for protoyping."><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1786092158"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1786092158">
-<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1786092158">
-<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1786092158">
-<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1786092158"><link rel="stylesheet" href="/academy-online/theme/academy/print.css?v=1786092158">
-<script src="/academy-online/theme/academy/atvantage.js?v=1786092158" defer></script>
-<script src="/academy-online/theme/jekyll/site.js?v=1786092158" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1786095763"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1786095763">
+<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1786095763">
+<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1786095763">
+<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1786095763"><link rel="stylesheet" href="/academy-online/theme/academy/print.css?v=1786095763">
+<script src="/academy-online/theme/academy/atvantage.js?v=1786095763" defer></script>
+<script src="/academy-online/theme/jekyll/site.js?v=1786095763" defer></script>
 <link rel="icon" href="/academy-online/theme/atvantage/assets/logo-orange.svg">
 
-  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1786092158">
+  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1786095763">
 </head>
 <body class="avd-academy-guide">
   <a class="avd-academy-skip-link" href="#avd-academy-content">Zum Inhalt springen</a>
 
   <div class="avd-academy-metanav">
-    <span>Weiterbildung, die zur Selbsthilfe befähigt.</span>
+    <span>ATVANTAGE Academy</span>
   </div>
 
   <header class="avd-academy-header">
@@ -63,8 +65,8 @@
         <button type="button" class="avd-academy-header__grouptoggle"
                 aria-expanded="false" aria-haspopup="true">Team<span class="avd-academy-header__caret" aria-hidden="true">▾</span></button>
         <div class="avd-academy-header__submenu" role="menu">
-          <a role="menuitem" href="/academy-online/team/ray-wojciechowski.html">Ray Wojciechowski</a>
-          <a role="menuitem" href="/academy-online/team/ralf-ueberfuhr.html">Ralf Ueberfuhr</a>
+          <a role="menuitem" href="/academy-online/team/ray-wojciechowski.html"><img class="avd-academy-linkicon" src="/academy-online/team/img/ray-wojciechowski.jpg" alt="">Ray Wojciechowski</a>
+          <a role="menuitem" href="/academy-online/team/ralf-ueberfuhr.html"><img class="avd-academy-linkicon" src="/academy-online/team/img/ralf-ueberfuhr.png" alt="">Ralf Ueberfuhr</a>
         </div>
       </div>
     <button class="avd-academy-btn avd-academy-btn--ghost" data-avd-academy-theme-toggle
@@ -117,12 +119,10 @@ If the user invokes this skill without any other guidance, ask them what they wa
       <strong>Kontakt</strong>
       <p><a href="mailto:academy@atvantage.com">academy@atvantage.com</a><br>
       </p>
-    </div>
-    <div>
+    </div><div>
       <strong>Mehr</strong>
-      <p><a href="https://www.atvantage.com/leistungen/schulungsangebot">Wir bei ATVANTAGE</a></p>
-    </div>
-  </div>
+      <p><a href="https://www.atvantage.com/leistungen/schulungsangebot" target="_blank" rel="noopener">Wir bei ATVANTAGE</a></p>
+    </div></div>
   <div class="avd-academy-footer__legal">
     © <span data-avd-academy-year>2026</span> ATVANTAGE
   </div>
