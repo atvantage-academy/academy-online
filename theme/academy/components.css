@@ -177,11 +177,22 @@
 .avd-academy-linkicon {
   width: 1.15em; height: 1.15em; vertical-align: -0.2em;
   display: inline-block; object-fit: cover; border-radius: 50%; flex: none;
+  margin-right: 0.5em;   /* Abstand zwischen Icon und Text (Titel folgt als Textknoten) */
 }
-.avd-academy-linkicon:not(:last-child) { margin-right: 0.4em; }
 /* Ressourcen-Sidebar: Icon rechts, etwas größer (avatarartig). */
 .avd-academy-guide-side__links a { display: flex; align-items: center; gap: 0.5rem; }
 .avd-academy-linkicon--right { margin-left: auto; margin-right: 0; width: 1.6em; height: 1.6em; }
+/* Aufklappmenü mit gemischten Einträgen (mit/ohne Icon): feste Icon-Spalte, damit
+   ALLE Titel linksbündig untereinander stehen. Icon liegt im linken Gutter.
+   Kompound-Selektor (beide Klassen) + volle `padding`-Kurzform, damit die
+   Basisregel `.avd-academy-header__submenu a { padding: 8px 20px }` den linken
+   Innenabstand NICHT zurücksetzt (sonst rutscht der Text unter das Icon). */
+.avd-academy-header__submenu--hasicons.avd-academy-header__submenu a {
+  position: relative; padding: 8px 20px 8px calc(20px + 1.65em);
+}
+.avd-academy-header__submenu--hasicons .avd-academy-linkicon {
+  position: absolute; left: 20px; top: 50%; transform: translateY(-50%); margin-right: 0;
+}
 .avd-academy-header__submenu {
   display: none; position: absolute; top: 100%; left: 0;
   min-width: 210px; margin-top: 8px; padding: 8px 0;
