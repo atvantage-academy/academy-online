@@ -181,10 +181,13 @@
   box-shadow: var(--avd-academy-shadow-2);
   z-index: 60;
 }
-/* Unsichtbare Brücke über die 8px-Lücke, damit der Hover beim Runterfahren
-   von Toggle zu Untermenü nicht abreißt (Untermenü bleibt im :hover der Gruppe). */
+/* Unsichtbare Hover-Brücke über die Lücke (margin-top) zwischen Toggle und
+   Untermenü. GROSSZÜGIG überlappend (nicht exakt 8px), damit der :hover beim
+   Runterfahren der Maus garantiert NICHT abreißt — auch kein Sub-Pixel-Spalt durch
+   Rahmen/Padding. Das Untermenü bleibt so im :hover der Gruppe. */
 .avd-academy-header__submenu::before {
-  content: ""; position: absolute; left: 0; right: 0; top: -8px; height: 8px;
+  content: ""; position: absolute; left: 0; right: 0;
+  top: -14px; height: 18px; pointer-events: auto;
 }
 .avd-academy-header__group:hover .avd-academy-header__submenu,
 .avd-academy-header__group:focus-within .avd-academy-header__submenu,
