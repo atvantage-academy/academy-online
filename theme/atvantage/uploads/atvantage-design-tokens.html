@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <!--
-  ATVANTAGE-Academy — EINZIGES Seitenlayout (Jekyll)
+  ATVANTAGE-Academy – EINZIGES Seitenlayout (Jekyll)
   --------------------------------------------------
   Ein Layout für alles: allgemeine Doku-Seiten UND Guides (Übungen/Anleitungen).
   Optik nach der ATVANTAGE-Website: Meta-Nav, weiße sticky Kopfzeile, Hero-Band,
   zweispaltig mit rechter Sidebar (automatisches Inhaltsverzeichnis, Fortschritt
   aus Task-Listen, weiterführende Ressourcen). Überschriften ohne Emoji-Icons.
 
-  Verwendung im Front Matter:  layout: default
+  Verwendung im Front Matter:  layout: default   (oder `layout: guide` – Alias,
+  siehe guide.html; beides rendert dieselbe Guide-Ansicht)
+
+  `layout: visualization` (siehe visualization.html) rendert dieselbe Seite OHNE
+  obere Navigation (Meta-Leiste + Kopfzeile/TopNav) und OHNE Brotkrumen, mit einem
+  schmaleren Hero-Balken – für eigenständige Visualisierungen/Simulationen.
 
   Alle Front-Matter-Felder sind OPTIONAL (Convention over Configuration). Nur der
-  Titel ist faktisch erforderlich — als `title:` ODER als erste `#`-Überschrift:
+  Titel ist faktisch erforderlich – als `title:` ODER als erste `#`-Überschrift:
 
     title:       "…"                → sonst erste #-Überschrift (eins von beiden nötig)
     description: "…"                → Meta-Description
-    duration:    8                  → Zahl in Minuten → Hero-Tag „ca. 8 Minuten"
+    duration:    8                  → Zahl in Minuten → Hero-Tag „ca. 8 Minuten“
                                        (ungefähre LESEDAUER; bei Guides/Übungen die
                                        Dauer der Übung). Aktiviert zugleich die
                                        automatische Prev/Next-Navigation zwischen
                                        gleichartigen Geschwister-Seiten.
     topics:      ["Cloud & DevOps"] → weitere Hero-Tags
-    resources:   [{titel, url, icon}, …] → Sidebar-Karte „Weiterführende Informationen".
+    resources:   [{titel, url, icon}, …] → Sidebar-Karte „Weiterführende Informationen“.
                                        titel und/oder icon (Bildpfad); icon erscheint
                                        rechts und wird kreisrund dargestellt.
-    breadcrumb:  [{title, url}, …]  → überschreibt die aus dem Ordner abgeleiteten Brotkrumen
+    breadcrumb:                     → Brotkrumen anpassen (beides optional):
+      label: "…"                    → überschreibt den Ordnernamen dieser Ebene;
+                                       in der Ordner-`index.md` gesetzt gilt es für
+                                       ALLE Seiten im Ordner und in Unterordnern.
+      path: [{title, url}, …]       → explizite Vorfahren-Kette OHNE die aktuelle
+                                       Seite (diese wird automatisch angehängt); in
+                                       der `index.md` gesetzt wird sie vererbt.
     zurueck / weiter: {title, url}  → explizite Prev/Next-Links (sonst automatisch)
 
-  „Markdown kopieren" (Button im Hero) erscheint auf allen Markdown-Seiten
+  „Markdown kopieren“ (Button im Hero) erscheint auf allen Markdown-Seiten
   (`page.ext == '.md'`), nicht auf reinen HTML-Seiten.
 -->
 <html lang="de">
@@ -36,19 +47,26 @@
 <title>ATVANTAGE Academy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1786460606"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1786460606">
-<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1786460606">
-<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1786460606">
-<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1786460606"><link rel="stylesheet" href="/academy-online/theme/academy/print.css?v=1786460606">
-<script src="/academy-online/theme/academy/atvantage.js?v=1786460606" defer></script>
-<script src="/academy-online/theme/jekyll/site.js?v=1786460606" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1786657505"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1786657505">
+<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1786657505">
+<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1786657505">
+<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1786657505"><link rel="stylesheet" href="/academy-online/theme/academy/print.css?v=1786657505">
+<script src="/academy-online/theme/academy/atvantage.js?v=1786657505" defer></script>
+<script src="/academy-online/theme/jekyll/site.js?v=1786657505" defer></script>
+<link rel="stylesheet" href="/academy-online/theme/academy/highlight.css?v=1786657505">
+<script type="module">
+  const _hlbase = "/academy-online/theme/academy/hljs/";
+  Promise.all([import(_hlbase + "core.min.js"), import(_hlbase + "java.min.js")])
+    .then(([core, java]) => {
+      const hljs = core.default;
+      hljs.registerLanguage("java", java.default);
+      document.querySelectorAll("pre code.language-java").forEach((el) => hljs.highlightElement(el));
+    });
+</script>
 <link rel="icon" href="/academy-online/theme/atvantage/assets/logo-orange.svg">
 
-  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1786460606">
-</head>
-<body class="avd-academy-guide">
+  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1786657505"></head><body class="avd-academy-guide">
   <a class="avd-academy-skip-link" href="#avd-academy-content">Zum Inhalt springen</a>
-
   <div class="avd-academy-metanav">
     <span>ATVANTAGE Academy</span>
   </div>
@@ -78,9 +96,7 @@
             aria-label="Farbschema umschalten">◐</button>
   </nav>
 </header>
-<section class="avd-academy-guide-hero">
-    <nav class="avd-academy-guide-hero__crumbs" aria-label="Brotkrumen"><a href="/academy-online/">Home</a><span>/</span><a href="/academy-online/theme/">Theme</a><span>/</span><a href="/academy-online/theme/atvantage/">Atvantage</a><span>/</span><a href="/academy-online/theme/atvantage/uploads/">Uploads</a><span>/</span><span aria-current="page">ATVANTAGE Design Tokens</span></nav>
-    <div class="avd-academy-guide-hero__meta">
+<section class="avd-academy-guide-hero"><nav class="avd-academy-guide-hero__crumbs" aria-label="Brotkrumen"><a href="/academy-online/">Home</a><span>/</span><a href="/academy-online/theme/">Theme</a><span>/</span><a href="/academy-online/theme/atvantage/">Atvantage</a><span>/</span><a href="/academy-online/theme/atvantage/uploads/">Uploads</a><span>/</span><span aria-current="page">ATVANTAGE Design Tokens</span></nav><div class="avd-academy-guide-hero__meta">
       <div class="avd-academy-guide-hero__tags">
       </div>
       <button type="button" class="avd-academy-btn avd-academy-btn--ghost avd-academy-copy-md"
@@ -94,7 +110,7 @@
       <h1 id="atvantage-design-tokens">ATVANTAGE Design Tokens</h1>
 
 <p>Extrahiert aus dem Inline-CSS von www.atvantage.com (Stand: Juli 2026).
-Quelle ist ein Pimcore-Theming-System mit sechs Sektions-Themes (<code class="language-plaintext highlighter-rouge">.stylesheet_*</code>).
+Quelle ist ein Pimcore-Theming-System mit sechs Sektions-Themes (<code>.stylesheet_*</code>).
 Vier davon sind der aktuelle ATVANTAGE-Look (Outfit, Orange-Akzente), zwei sind
 TIMETOACT-Altbestand (Inter, TTA-Blau). Dieses Dokument beschreibt den
 ATVANTAGE-Look; der Altbestand ist am Ende separat vermerkt.</p>
@@ -114,27 +130,27 @@ ATVANTAGE-Look; der Altbestand ist am Ende separat vermerkt.</p>
   <tbody>
     <tr>
       <td>Anthrazit (Text)</td>
-      <td><code class="language-plaintext highlighter-rouge">#343E3F</code></td>
+      <td><code>#343E3F</code></td>
       <td>Fließtext, primäre Buttons</td>
     </tr>
     <tr>
       <td>Fast-Schwarz (Headlines)</td>
-      <td><code class="language-plaintext highlighter-rouge">#1A2627</code></td>
+      <td><code>#1A2627</code></td>
       <td>Überschriften H1–H6</td>
     </tr>
     <tr>
       <td>Blaugrau (Akzent)</td>
-      <td><code class="language-plaintext highlighter-rouge">#303E4F</code></td>
+      <td><code>#303E4F</code></td>
       <td>Akzentfarbe, dunkle Sektions-Hintergründe</td>
     </tr>
     <tr>
       <td>Orange (Standard)</td>
-      <td><code class="language-plaintext highlighter-rouge">#FF5401</code></td>
+      <td><code>#FF5401</code></td>
       <td>Links, aktive Zustände, Icons, Card-Headlines, Logo</td>
     </tr>
     <tr>
       <td>Weiß</td>
-      <td><code class="language-plaintext highlighter-rouge">#FFFFFF</code></td>
+      <td><code>#FFFFFF</code></td>
       <td>Hintergrund, invertierter Text</td>
     </tr>
   </tbody>
@@ -153,47 +169,47 @@ ATVANTAGE-Look; der Altbestand ist am Ende separat vermerkt.</p>
   <tbody>
     <tr>
       <td>Hellblau (Sektion)</td>
-      <td><code class="language-plaintext highlighter-rouge">#DDE4EE</code></td>
+      <td><code>#DDE4EE</code></td>
       <td>Hervorgehobene Sektions-Hintergründe</td>
     </tr>
     <tr>
       <td>Hellgrau (Card)</td>
-      <td><code class="language-plaintext highlighter-rouge">#EDEDED</code> / <code class="language-plaintext highlighter-rouge">#EEEEEE</code></td>
+      <td><code>#EDEDED</code> / <code>#EEEEEE</code></td>
       <td>Card-Hintergründe</td>
     </tr>
     <tr>
       <td>Hellgrau (Metanav)</td>
-      <td><code class="language-plaintext highlighter-rouge">#F4F4F4</code></td>
+      <td><code>#F4F4F4</code></td>
       <td>Meta-Navigation</td>
     </tr>
     <tr>
       <td>Mittelgrau</td>
-      <td><code class="language-plaintext highlighter-rouge">#909090</code></td>
+      <td><code>#909090</code></td>
       <td>Akzent grau</td>
     </tr>
     <tr>
       <td>Grau (Footer)</td>
-      <td><code class="language-plaintext highlighter-rouge">#5F5F5F</code></td>
+      <td><code>#5F5F5F</code></td>
       <td>Footer, Schatten, sekundärer Text</td>
     </tr>
     <tr>
       <td>Dunkelgrau (Footer-Akzent)</td>
-      <td><code class="language-plaintext highlighter-rouge">#373737</code></td>
+      <td><code>#373737</code></td>
       <td>Footer-Akzentfläche</td>
     </tr>
     <tr>
       <td>Grau (Metanav-Text)</td>
-      <td><code class="language-plaintext highlighter-rouge">#707173</code></td>
+      <td><code>#707173</code></td>
       <td>Meta-Navigation, Affiliation-Leiste</td>
     </tr>
     <tr>
       <td>Grau (Hover-Button)</td>
-      <td><code class="language-plaintext highlighter-rouge">#4D5657</code></td>
+      <td><code>#4D5657</code></td>
       <td>Button-Hover</td>
     </tr>
     <tr>
       <td>Rot (Danger)</td>
-      <td><code class="language-plaintext highlighter-rouge">#EE1919</code></td>
+      <td><code>#EE1919</code></td>
       <td>Fehler/Warnung</td>
     </tr>
   </tbody>
@@ -202,7 +218,7 @@ ATVANTAGE-Look; der Altbestand ist am Ende separat vermerkt.</p>
 <h2 id="typografie">Typografie</h2>
 
 <p><strong>Schriftfamilie:</strong> Outfit (durchgängig für Text und Headlines).
-Geladen als Webfont; Fallback <code class="language-plaintext highlighter-rouge">sans-serif</code>.</p>
+Geladen als Webfont; Fallback <code>sans-serif</code>.</p>
 
 <p><strong>Fließtext:</strong></p>
 
@@ -233,7 +249,7 @@ Geladen als Webfont; Fallback <code class="language-plaintext highlighter-rouge"
   </tbody>
 </table>
 
-<p><strong>Headlines</strong> (Farbe <code class="language-plaintext highlighter-rouge">#1A2627</code>, Gewicht 500 in Content-Sektionen, Basis 600):</p>
+<p><strong>Headlines</strong> (Farbe <code>#1A2627</code>, Gewicht 500 in Content-Sektionen, Basis 600):</p>
 
 <table>
   <thead>
@@ -268,7 +284,7 @@ Geladen als Webfont; Fallback <code class="language-plaintext highlighter-rouge"
 </table>
 
 <p>Desktop-Größen werden nicht fest gesetzt, sondern aus der Mobile-Basis
-per <code class="language-plaintext highlighter-rouge">calc()</code> an drei Breakpoints hochskaliert.</p>
+per <code>calc()</code> an drei Breakpoints hochskaliert.</p>
 
 <h2 id="buttons">Buttons</h2>
 
@@ -282,15 +298,15 @@ per <code class="language-plaintext highlighter-rouge">calc()</code> an drei Bre
   <tbody>
     <tr>
       <td>Hintergrund</td>
-      <td><code class="language-plaintext highlighter-rouge">#343E3F</code> (Anthrazit)</td>
+      <td><code>#343E3F</code> (Anthrazit)</td>
     </tr>
     <tr>
       <td>Text</td>
-      <td><code class="language-plaintext highlighter-rouge">#FFFFFF</code></td>
+      <td><code>#FFFFFF</code></td>
     </tr>
     <tr>
       <td>Hover</td>
-      <td><code class="language-plaintext highlighter-rouge">#4D5657</code></td>
+      <td><code>#4D5657</code></td>
     </tr>
     <tr>
       <td>Border-Radius</td>
@@ -299,8 +315,8 @@ per <code class="language-plaintext highlighter-rouge">calc()</code> an drei Bre
   </tbody>
 </table>
 
-<p>Auf dunklem Hintergrund (<code class="language-plaintext highlighter-rouge">#303E4F</code>) invertiert: weißer Button,
-Text <code class="language-plaintext highlighter-rouge">#303E4F</code>, Hover transparent-weiß mit weißem Rahmen.</p>
+<p>Auf dunklem Hintergrund (<code>#303E4F</code>) invertiert: weißer Button,
+Text <code>#303E4F</code>, Hover transparent-weiß mit weißem Rahmen.</p>
 
 <h2 id="layout--spacing">Layout &amp; Spacing</h2>
 
@@ -330,7 +346,7 @@ Text <code class="language-plaintext highlighter-rouge">#303E4F</code>, Hover tr
     </tr>
     <tr>
       <td>Schatten</td>
-      <td><code class="language-plaintext highlighter-rouge">0 0 10px #5F5F5F</code></td>
+      <td><code>0 0 10px #5F5F5F</code></td>
     </tr>
   </tbody>
 </table>
@@ -339,54 +355,54 @@ Text <code class="language-plaintext highlighter-rouge">#303E4F</code>, Hover tr
 
 <h2 id="konsolidierter-token-block-css">Konsolidierter Token-Block (CSS)</h2>
 
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">:root</span> <span class="p">{</span>
-  <span class="c">/* Farben */</span>
-  <span class="py">--color-text</span><span class="p">:</span> <span class="nx">#343e3f</span><span class="p">;</span>
-  <span class="py">--color-headline</span><span class="p">:</span> <span class="nx">#1a2627</span><span class="p">;</span>
-  <span class="py">--color-accent</span><span class="p">:</span> <span class="nx">#303e4f</span><span class="p">;</span>
-  <span class="py">--color-orange</span><span class="p">:</span> <span class="nx">#ff5401</span><span class="p">;</span>
-  <span class="py">--color-link</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="l">--color-orange</span><span class="p">);</span>
-  <span class="py">--color-icon</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="l">--color-orange</span><span class="p">);</span>
-  <span class="py">--color-background</span><span class="p">:</span> <span class="nx">#ffffff</span><span class="p">;</span>
-  <span class="py">--color-surface-blue</span><span class="p">:</span> <span class="nx">#dde4ee</span><span class="p">;</span>
-  <span class="py">--color-surface-card</span><span class="p">:</span> <span class="nx">#ededed</span><span class="p">;</span>
-  <span class="py">--color-footer</span><span class="p">:</span> <span class="nx">#5f5f5f</span><span class="p">;</span>
-  <span class="py">--color-danger</span><span class="p">:</span> <span class="nx">#ee1919</span><span class="p">;</span>
+<pre><code class="language-css">:root {
+  /* Farben */
+  --color-text: #343e3f;
+  --color-headline: #1a2627;
+  --color-accent: #303e4f;
+  --color-orange: #ff5401;
+  --color-link: var(--color-orange);
+  --color-icon: var(--color-orange);
+  --color-background: #ffffff;
+  --color-surface-blue: #dde4ee;
+  --color-surface-card: #ededed;
+  --color-footer: #5f5f5f;
+  --color-danger: #ee1919;
 
-  <span class="c">/* Typografie */</span>
-  <span class="py">--font-family</span><span class="p">:</span> <span class="s2">'Outfit'</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
-  <span class="py">--text-size</span><span class="p">:</span> <span class="m">1.125rem</span><span class="p">;</span>
-  <span class="py">--text-weight</span><span class="p">:</span> <span class="m">400</span><span class="p">;</span>
-  <span class="py">--text-line-height</span><span class="p">:</span> <span class="m">1.62</span><span class="p">;</span>
+  /* Typografie */
+  --font-family: 'Outfit', sans-serif;
+  --text-size: 1.125rem;
+  --text-weight: 400;
+  --text-line-height: 1.62;
 
-  <span class="c">/* Komponenten */</span>
-  <span class="py">--button-bg</span><span class="p">:</span> <span class="nx">#343e3f</span><span class="p">;</span>
-  <span class="py">--button-text</span><span class="p">:</span> <span class="nx">#ffffff</span><span class="p">;</span>
-  <span class="py">--button-bg-hover</span><span class="p">:</span> <span class="nx">#4d5657</span><span class="p">;</span>
-  <span class="py">--button-radius</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+  /* Komponenten */
+  --button-bg: #343e3f;
+  --button-text: #ffffff;
+  --button-bg-hover: #4d5657;
+  --button-radius: 5px;
 
-  <span class="c">/* Layout */</span>
-  <span class="py">--content-inline-padding</span><span class="p">:</span> <span class="m">24px</span><span class="p">;</span>
-  <span class="py">--section-padding-block</span><span class="p">:</span> <span class="m">5rem</span><span class="p">;</span>
-  <span class="py">--shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span> <span class="nx">#5f5f5f</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
+  /* Layout */
+  --content-inline-padding: 24px;
+  --section-padding-block: 5rem;
+  --shadow: 0 0 10px #5f5f5f;
+}
+</code></pre>
 
 <h2 id="hinweise--offene-punkte">Hinweise / offene Punkte</h2>
 
 <ol>
-  <li><strong>Zwei Markenwelten im CSS.</strong> Die Themes <code class="language-plaintext highlighter-rouge">stylesheet_88621</code> und
-<code class="language-plaintext highlighter-rouge">stylesheet_88624</code> nutzen Inter statt Outfit und TIMETOACT-Blau
-<code class="language-plaintext highlighter-rouge">#004C91</code> für Buttons, Icons und Card-Headlines — vermutlich
+  <li><strong>Zwei Markenwelten im CSS.</strong> Die Themes <code>stylesheet_88621</code> und
+<code>stylesheet_88624</code> nutzen Inter statt Outfit und TIMETOACT-Blau
+<code>#004C91</code> für Buttons, Icons und Card-Headlines — vermutlich
 Altbestand oder Gruppen-Kontext. Für das ATVANTAGE-Design-System
 ignorieren, sofern nicht bewusst als Sub-Brand gewünscht.</li>
-  <li><strong>Montserrat-Fallback im Base-Layer</strong> (<code class="language-plaintext highlighter-rouge">h1–h6 { font-family:
+  <li><strong>Montserrat-Fallback im Base-Layer</strong> (<code>h1–h6 { font-family:
 Montserrat, ... }</code>) wird von den Theme-Variablen überschrieben —
 Altlast, nicht übernehmen.</li>
-  <li><strong>Orange konsolidiert auf <code class="language-plaintext highlighter-rouge">#FF5401</code></strong> (verbindlicher Standard).
+  <li><strong>Orange konsolidiert auf <code>#FF5401</code></strong> (verbindlicher Standard).
 Abweichende Bestandswerte, die bei Gelegenheit nachgezogen werden
-sollten: Website-CSS nutzt <code class="language-plaintext highlighter-rouge">#F08225</code> (Links) und <code class="language-plaintext highlighter-rouge">#EE6419</code> (Icons),
-der ursprüngliche Logo-Export <code class="language-plaintext highlighter-rouge">#EB5B29</code>.</li>
+sollten: Website-CSS nutzt <code>#F08225</code> (Links) und <code>#EE6419</code> (Icons),
+der ursprüngliche Logo-Export <code>#EB5B29</code>.</li>
   <li>Herausgefiltert wurden: SVG-Data-URIs (Chevrons, Icons),
 tta-iconfont, Marketing-Form-Styles (Dynamics), Cookie-Banner,
 Social-Media-Markenfarben, Swiper-Interna.</li>
@@ -542,7 +558,7 @@ Text `#303E4F`, Hover transparent-weiß mit weißem Rahmen.
     </aside>
   </div><div class="avd-academy-print-contact" aria-hidden="true">
     <span>Kontakt: <a href="mailto:academy@atvantage.com">academy@atvantage.com</a></span>
-    <span><a href="https://atvantage-academy.github.io/academy-online/">ATVANTAGE Academy</a></span>
+    <span><a href="https://www.atvantage.com">ATVANTAGE Academy</a></span>
   </div>
 
   <footer class="avd-academy-footer">
