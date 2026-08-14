@@ -37,8 +37,16 @@
                                        der `index.md` gesetzt wird sie vererbt.
     zurueck / weiter: {title, url}  → explizite Prev/Next-Links (sonst automatisch)
 
-  „Markdown kopieren“ (Button im Hero) erscheint auf allen Markdown-Seiten
-  (`page.ext == '.md'`), nicht auf reinen HTML-Seiten.
+  „Markdown kopieren“ (Button im Hero) erscheint NUR auf Guides (Übungen,
+  Anleitungen) – dort ist das Übernehmen des Quelltexts der Zweck. Bedingungen:
+  Markdown-Seite (`.md`, nicht reines HTML) UND als Guide erkennbar UND keine
+  Visualisierung. Guide ist eine Seite mit `layout: guide` ODER gesetztem
+  `duration` – letzteres ist der etablierte Marker (er schaltet auch die
+  nummerierten Arbeitsschritte und Prev/Next frei), und die Guide-Vorlage des
+  Themes wie auch die von didaktikon erzeugten Übungen nutzen `layout: default`
+  plus `duration`. Nur auf `layout: guide` zu prüfen würde den Button dort
+  entfernen. Doku-Seiten haben kein `duration`; Visualisierungen sind
+  ausgeschlossen, weil ihr Inhalt nicht sinnvoll als Markdown kopierbar ist.
 -->
 <html lang="de">
 <head>
@@ -47,13 +55,13 @@
 <title>ATVANTAGE Academy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1786681994"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1786681994">
-<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1786681994">
-<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1786681994">
-<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1786681994"><link rel="stylesheet" href="/academy-online/theme/academy/print.css?v=1786681994">
-<script src="/academy-online/theme/academy/atvantage.js?v=1786681994" defer></script>
-<script src="/academy-online/theme/jekyll/site.js?v=1786681994" defer></script>
-<link rel="stylesheet" href="/academy-online/theme/academy/highlight.css?v=1786681994">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1786688834"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1786688834">
+<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1786688834">
+<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1786688834">
+<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1786688834"><link rel="stylesheet" href="/academy-online/theme/academy/print.css?v=1786688834">
+<script src="/academy-online/theme/academy/atvantage.js?v=1786688834" defer></script>
+<script src="/academy-online/theme/jekyll/site.js?v=1786688834" defer></script>
+<link rel="stylesheet" href="/academy-online/theme/academy/highlight.css?v=1786688834">
 <script type="module">
   const _hlbase = "/academy-online/theme/academy/hljs/";
   Promise.all([import(_hlbase + "core.min.js"), import(_hlbase + "java.min.js")])
@@ -65,7 +73,7 @@
 </script>
 <link rel="icon" href="/academy-online/theme/atvantage/assets/logo-orange.svg">
 
-  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1786681994"></head><body class="avd-academy-guide">
+  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1786688834"></head><body class="avd-academy-guide">
   <a class="avd-academy-skip-link" href="#avd-academy-content">Zum Inhalt springen</a>
   <div class="avd-academy-metanav">
     <span>ATVANTAGE Academy</span>
@@ -99,9 +107,6 @@
 <section class="avd-academy-guide-hero"><nav class="avd-academy-guide-hero__crumbs" aria-label="Brotkrumen"><a href="/academy-online/">Home</a><span>/</span><a href="/academy-online/team/">Das Team</a><span>/</span><span aria-current="page">Ralf Ueberfuhr</span></nav><div class="avd-academy-guide-hero__meta">
       <div class="avd-academy-guide-hero__tags">
       </div>
-      <button type="button" class="avd-academy-btn avd-academy-btn--ghost avd-academy-copy-md"
-              data-avd-academy-copy-md="#avd-academy-md-source"
-              title="Markdown kopieren" aria-label="Markdown kopieren"></button>
     </div><h1>Ralf Ueberfuhr</h1>
   </section>
 
@@ -234,114 +239,7 @@ Konzeption unterstützt, beschreibt das Profil der
 }
 </style>
 
-<textarea id="avd-academy-md-source" hidden aria-hidden="true"># Ralf Ueberfuhr
 
-**Trainer der ATVANTAGE Academy**
-
-Diplom-Medieninformatiker und seit 2006 Trainer sowie Software-Engineer und
-Consultant. Ralf verbindet die tägliche Entwicklungspraxis mit langjähriger
-Trainererfahrung: Er entwickelt Fullstack-Anwendungen für anspruchsvolle Kunden und
-gibt dieses Wissen seit vielen Jahren in Trainings weiter – von den Grundlagen der
-Objektorientierung bis zu Enterprise Java. Als Autor bei Baeldung schreibt er
-regelmäßig Artikel zu Themen im Bereich Java, Spring und Quarkus.
-
-## Schwerpunkte
-
-- Objektorientierte Programmierung mit Java
-- Enterprise Java – Jakarta EE, Spring und Quarkus
-- Fullstack-Entwicklung (Online-Anwendungen)
-- CI/CD mit Git und Maven/Gradle
-- Microservices-Architekturen und APIs
-- Container- &amp; Cloud-Native-Grundlagen – Docker, Kubernetes/OpenShift
-- Didaktik &amp; Ausbildung: langjährige Trainingserfahrung, auch in der Ausbildung
-  von Nachwuchskräften
-
-## Praxiserfahrung
-
-Ralf startete als IT-Consultant mit dem Ziel, Kunden zu beraten und zu schulen –
-und wurde zunächst tief in die Entwicklungspraxis geführt. Genau diese Verbindung
-aus eigener Projektarbeit und Lehre prägt seine Trainings bis heute. Inzwischen
-gehört das Schulen zum Kerngeschäft, mit regelmäßig über 100 Trainingstagen pro Jahr.
-
-### Aus der Projektpraxis
-
-Seine ersten Jahre verbrachte Ralf in Programmierteams: In der Zentrale eines
-international tätigen Industriekonzerns arbeitete er als Java-EE-Entwickler an einer
-zentralen Reporting-Anwendung, die an Standorten rund um die Welt im Einsatz war.
-Als diese Lösung planmäßig in ein Standardsystem überführt wurde, wechselte er in die
-Engineering-Sparte desselben Konzerns und betreute dort ein Dokumentenmanagement-System
-auf Basis von Java EE und dem IBM WebSphere Application Server. Aus dieser Zeit nimmt
-er mit, was gute Trainings ausmacht: Beispiele, Antworten und Fingerspitzengefühl aus
-echter Projektarbeit.
-
-### Vom Detail zur Breite
-
-Mit der Zeit verlagerte sich der Schwerpunkt auf das, was Ralf am meisten liegt –
-Wissen weiterzugeben. Seit 2006 hält er Schulungen für anspruchsvolle Auftraggeber
-aus der gesetzlichen Rentenversicherung, der Versicherungswirtschaft sowie dem
-Finanz- und Steuerumfeld: objektorientierte Programmierung, Java, Spring und Quarkus,
-Microservices sowie Grundlagen zu Docker und Kubernetes/OpenShift. Waren die Trainings
-anfangs stark in die technische Tiefe gegangen, rückte später das Breitenwissen in den
-Vordergrund – das Verständnis für Konzepte und Zusammenhänge, das Teilnehmende
-befähigt, sich neue Themen anschließend selbst zu erschließen. Diese Haltung ist kein
-Zufall, sondern folgt unserem [Didaktischen Manifest](/academy-online/die-academy/didaktisches-manifest.html)
-(„Breite vor Tiefe, Zusammenhänge vor Details“ und „Hilfe zur Selbsthilfe“).
-
-### Ausbildung junger Talente
-
-Die Arbeit mit Auszubildenden begleitet Ralf seit vielen Jahren. Bei einem
-Auftraggeber gestaltete er die Ausbildung – von der Themenauswahl bis zur
-Terminplanung – vollständig eigenverantwortlich; diese Erfahrung bringt er heute in
-die enge Zusammenarbeit mit dem spezialisierten Ausbildungspersonal unserer Kunden
-ein.
-
-Wie wir Trainings zuschneiden, wie wir Nachwuchskräfte ausbilden und wie KI unsere
-Konzeption unterstützt, beschreibt das Profil der
-[ATVANTAGE Academy](/academy-online/die-academy/).
-
-## Ausbildung &amp; Zertifizierungen
-
-- **Diplom-Medieninformatik** (Universität), TU Dresden, 2006 – Nebenfach
-  *Berufliche Aus- und Weiterbildung*
-- **Train-the-Trainer** (2004, 2010)
-
-## Werdegang
-
-| Zeitraum  | Station                                              | Rolle / Schwerpunkt                                                                                                             |
-|-----------|------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| seit 2021 | Baeldung                                             | Autor – Java-Grundlagen &amp; Spring Boot                                                                                           |
-| seit 2006 | ATVANTAGE GmbH (vormals ARS Computer und Consulting) | Trainer für Softwareentwickler:innen – OOP, Java, Jakarta EE/Spring, CI/CD, Microservices, REST                                 |
-| seit 2006 | ATVANTAGE GmbH (vormals ARS Computer und Consulting) | Software-Engineer &amp; Consultant – Fullstack-Anwendungen (Jakarta EE, Spring Boot, Quarkus, Angular; OpenLiberty / IBM WebSphere) |
-
-&lt;!--
-  Rundes Profilbild links neben dem Namen im Hero (grauer Bereich).
-  Bewusst am Dateiende: so bleibt die Body-Ueberschrift `# …` das erste Kind des
-  Inhalts und wird vom Theme ausgeblendet (der Titel steht bereits im Hero).
-  Nicht Teil des Drucklayouts (@media print).
---&gt;
-&lt;style&gt;
-.avd-academy-guide-hero h1::before {
-  content: &quot;&quot;;
-  display: inline-block;
-  vertical-align: middle;
-  width: 7rem;
-  height: 7rem;
-  margin-right: 1.25rem;
-  border-radius: 50%;
-  background: url(&apos;{{ &quot;/team/img/ralf-ueberfuhr.png&quot; | relative_url }}&apos;) center / cover no-repeat;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 6px rgba(0, 0, 0, .18);
-}
-@media print {
-  .avd-academy-guide-hero h1::before { display: none !important; }
-}
-&lt;/style&gt;
-
-## Weiterführende Informationen
-
-- [GitHub-Profil](https://github.com/ueberfuhr)
-- [LinkedIn-Profil](https://www.linkedin.com/in/ralf-ueberfuhr/)
-- [Baeldung-Profil](https://www.baeldung.com/author/ralfueberfuhr)
-</textarea>
     </main>
 
     <aside class="avd-academy-guide-sidebar">

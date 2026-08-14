@@ -37,8 +37,16 @@
                                        der `index.md` gesetzt wird sie vererbt.
     zurueck / weiter: {title, url}  → explizite Prev/Next-Links (sonst automatisch)
 
-  „Markdown kopieren“ (Button im Hero) erscheint auf allen Markdown-Seiten
-  (`page.ext == '.md'`), nicht auf reinen HTML-Seiten.
+  „Markdown kopieren“ (Button im Hero) erscheint NUR auf Guides (Übungen,
+  Anleitungen) – dort ist das Übernehmen des Quelltexts der Zweck. Bedingungen:
+  Markdown-Seite (`.md`, nicht reines HTML) UND als Guide erkennbar UND keine
+  Visualisierung. Guide ist eine Seite mit `layout: guide` ODER gesetztem
+  `duration` – letzteres ist der etablierte Marker (er schaltet auch die
+  nummerierten Arbeitsschritte und Prev/Next frei), und die Guide-Vorlage des
+  Themes wie auch die von didaktikon erzeugten Übungen nutzen `layout: default`
+  plus `duration`. Nur auf `layout: guide` zu prüfen würde den Button dort
+  entfernen. Doku-Seiten haben kein `duration`; Visualisierungen sind
+  ausgeschlossen, weil ihr Inhalt nicht sinnvoll als Markdown kopierbar ist.
 -->
 <html lang="de">
 <head>
@@ -47,13 +55,13 @@
 <title>ATVANTAGE Academy</title>
 <meta name="description" content="Use this skill to generate well-branded interfaces and assets for ATVANTAGE, either for production or throwaway prototypes/mocks/etc. Contains essential design guidelines, colors, type, fonts, assets, and UI kit components for protoyping."><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1786681994"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1786681994">
-<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1786681994">
-<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1786681994">
-<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1786681994"><link rel="stylesheet" href="/academy-online/theme/academy/print.css?v=1786681994">
-<script src="/academy-online/theme/academy/atvantage.js?v=1786681994" defer></script>
-<script src="/academy-online/theme/jekyll/site.js?v=1786681994" defer></script>
-<link rel="stylesheet" href="/academy-online/theme/academy/highlight.css?v=1786681994">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1786688834"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1786688834">
+<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1786688834">
+<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1786688834">
+<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1786688834"><link rel="stylesheet" href="/academy-online/theme/academy/print.css?v=1786688834">
+<script src="/academy-online/theme/academy/atvantage.js?v=1786688834" defer></script>
+<script src="/academy-online/theme/jekyll/site.js?v=1786688834" defer></script>
+<link rel="stylesheet" href="/academy-online/theme/academy/highlight.css?v=1786688834">
 <script type="module">
   const _hlbase = "/academy-online/theme/academy/hljs/";
   Promise.all([import(_hlbase + "core.min.js"), import(_hlbase + "java.min.js")])
@@ -65,7 +73,7 @@
 </script>
 <link rel="icon" href="/academy-online/theme/atvantage/assets/logo-orange.svg">
 
-  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1786681994"></head><body class="avd-academy-guide">
+  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1786688834"></head><body class="avd-academy-guide">
   <a class="avd-academy-skip-link" href="#avd-academy-content">Zum Inhalt springen</a>
   <div class="avd-academy-metanav">
     <span>ATVANTAGE Academy</span>
@@ -99,9 +107,6 @@
 <section class="avd-academy-guide-hero"><nav class="avd-academy-guide-hero__crumbs" aria-label="Brotkrumen"><a href="/academy-online/">Home</a><span>/</span><a href="/academy-online/theme/">Theme</a><span>/</span><a href="/academy-online/theme/atvantage/">Atvantage</a></nav><div class="avd-academy-guide-hero__meta">
       <div class="avd-academy-guide-hero__tags">
       </div>
-      <button type="button" class="avd-academy-btn avd-academy-btn--ghost avd-academy-copy-md"
-              data-avd-academy-copy-md="#avd-academy-md-source"
-              title="Markdown kopieren" aria-label="Markdown kopieren"></button>
     </div>
   </section>
 
@@ -110,9 +115,7 @@
       <p>Read the README.md file within this skill, and explore the other available files.
 If creating visual artifacts (slides, mocks, throwaway prototypes, etc), copy assets out and create static HTML files for the user to view. If working on production code, you can copy assets and read the rules here to become an expert in designing with this brand.
 If the user invokes this skill without any other guidance, ask them what they want to build or design, ask some questions, and act as an expert designer who outputs HTML artifacts <em>or</em> production code, depending on the need.</p>
-<textarea id="avd-academy-md-source" hidden aria-hidden="true">Read the README.md file within this skill, and explore the other available files.
-If creating visual artifacts (slides, mocks, throwaway prototypes, etc), copy assets out and create static HTML files for the user to view. If working on production code, you can copy assets and read the rules here to become an expert in designing with this brand.
-If the user invokes this skill without any other guidance, ask them what they want to build or design, ask some questions, and act as an expert designer who outputs HTML artifacts _or_ production code, depending on the need.</textarea>
+
     </main>
 
     <aside class="avd-academy-guide-sidebar">

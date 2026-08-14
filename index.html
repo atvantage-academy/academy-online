@@ -37,8 +37,16 @@
                                        der `index.md` gesetzt wird sie vererbt.
     zurueck / weiter: {title, url}  → explizite Prev/Next-Links (sonst automatisch)
 
-  „Markdown kopieren“ (Button im Hero) erscheint auf allen Markdown-Seiten
-  (`page.ext == '.md'`), nicht auf reinen HTML-Seiten.
+  „Markdown kopieren“ (Button im Hero) erscheint NUR auf Guides (Übungen,
+  Anleitungen) – dort ist das Übernehmen des Quelltexts der Zweck. Bedingungen:
+  Markdown-Seite (`.md`, nicht reines HTML) UND als Guide erkennbar UND keine
+  Visualisierung. Guide ist eine Seite mit `layout: guide` ODER gesetztem
+  `duration` – letzteres ist der etablierte Marker (er schaltet auch die
+  nummerierten Arbeitsschritte und Prev/Next frei), und die Guide-Vorlage des
+  Themes wie auch die von didaktikon erzeugten Übungen nutzen `layout: default`
+  plus `duration`. Nur auf `layout: guide` zu prüfen würde den Button dort
+  entfernen. Doku-Seiten haben kein `duration`; Visualisierungen sind
+  ausgeschlossen, weil ihr Inhalt nicht sinnvoll als Markdown kopierbar ist.
 -->
 <html lang="de">
 <head>
@@ -47,13 +55,13 @@
 <title>ATVANTAGE Academy · ATVANTAGE Academy</title>
 <meta name="description" content="Der Online-Auftritt der ATVANTAGE Academy."><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1786681994"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1786681994">
-<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1786681994">
-<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1786681994">
-<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1786681994"><link rel="stylesheet" href="/academy-online/theme/academy/print.css?v=1786681994">
-<script src="/academy-online/theme/academy/atvantage.js?v=1786681994" defer></script>
-<script src="/academy-online/theme/jekyll/site.js?v=1786681994" defer></script>
-<link rel="stylesheet" href="/academy-online/theme/academy/highlight.css?v=1786681994">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1786688834"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1786688834">
+<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1786688834">
+<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1786688834">
+<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1786688834"><link rel="stylesheet" href="/academy-online/theme/academy/print.css?v=1786688834">
+<script src="/academy-online/theme/academy/atvantage.js?v=1786688834" defer></script>
+<script src="/academy-online/theme/jekyll/site.js?v=1786688834" defer></script>
+<link rel="stylesheet" href="/academy-online/theme/academy/highlight.css?v=1786688834">
 <script type="module">
   const _hlbase = "/academy-online/theme/academy/hljs/";
   Promise.all([import(_hlbase + "core.min.js"), import(_hlbase + "java.min.js")])
@@ -65,7 +73,7 @@
 </script>
 <link rel="icon" href="/academy-online/theme/atvantage/assets/logo-orange.svg">
 
-  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1786681994"></head><body class="avd-academy-guide">
+  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1786688834"></head><body class="avd-academy-guide">
   <a class="avd-academy-skip-link" href="#avd-academy-content">Zum Inhalt springen</a>
   <div class="avd-academy-metanav">
     <span>ATVANTAGE Academy</span>
@@ -99,9 +107,6 @@
 <section class="avd-academy-guide-hero"><nav class="avd-academy-guide-hero__crumbs" aria-label="Brotkrumen"><a href="/academy-online/">Home</a></nav><div class="avd-academy-guide-hero__meta">
       <div class="avd-academy-guide-hero__tags">
       </div>
-      <button type="button" class="avd-academy-btn avd-academy-btn--ghost avd-academy-copy-md"
-              data-avd-academy-copy-md="#avd-academy-md-source"
-              title="Markdown kopieren" aria-label="Markdown kopieren"></button>
     </div><h1>ATVANTAGE Academy</h1>
   </section>
 
@@ -141,40 +146,7 @@ Durchführung unserer Trainings orientieren.</p>
   </div>
 
 </div>
-<textarea id="avd-academy-md-source" hidden aria-hidden="true"># ATVANTAGE Academy
 
-Willkommen beim Online-Auftritt der **ATVANTAGE Academy**. Wir gestalten
-Weiterbildung, die Menschen befähigt, sich dauerhaft selbst zu helfen – nach
-klaren didaktischen Prinzipien und mit Freude an Zusammenhängen.
-
-&lt;div class=&quot;avd-academy-callout avd-academy-callout--info&quot; markdown=&quot;1&quot;&gt;
-**Diese Seite ist noch im Aufbau.** Sie ist bewusst als **Rumpf** angelegt. Was
-wir mit unserem Online-Auftritt an **Zielen** verfolgen, welche **Inhalte** wir
-hier positionieren und **wie** wir sie gestalten, definieren wir als Nächstes.
-Bis dahin finden Sie hier die tragenden Bausteine.
-&lt;/div&gt;
-
-## Was Sie hier finden
-
-&lt;div class=&quot;avd-academy-grid&quot; markdown=&quot;1&quot;&gt;
-
-&lt;div class=&quot;avd-academy-card&quot; markdown=&quot;1&quot;&gt;
-### [Die Academy](/academy-online/die-academy/)
-Wer wir sind, wie wir Weiterbildung gestalten und welche Erfahrung wir mitbringen.
-&lt;/div&gt;
-
-&lt;div class=&quot;avd-academy-card&quot; markdown=&quot;1&quot;&gt;
-### [Didaktisches Manifest](/academy-online/die-academy/didaktisches-manifest.html)
-Die verbindlichen Grundprinzipien, an denen wir uns bei Konzeption und
-Durchführung unserer Trainings orientieren.
-&lt;/div&gt;
-
-&lt;div class=&quot;avd-academy-card&quot; markdown=&quot;1&quot;&gt;
-### [Das Team](/academy-online/team/)
-Die Menschen hinter der Academy – mit Lebenslauf und Schwerpunkten.
-&lt;/div&gt;
-
-&lt;/div&gt;</textarea>
     </main>
 
     <aside class="avd-academy-guide-sidebar">

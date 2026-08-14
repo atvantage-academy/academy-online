@@ -37,8 +37,16 @@
                                        der `index.md` gesetzt wird sie vererbt.
     zurueck / weiter: {title, url}  → explizite Prev/Next-Links (sonst automatisch)
 
-  „Markdown kopieren“ (Button im Hero) erscheint auf allen Markdown-Seiten
-  (`page.ext == '.md'`), nicht auf reinen HTML-Seiten.
+  „Markdown kopieren“ (Button im Hero) erscheint NUR auf Guides (Übungen,
+  Anleitungen) – dort ist das Übernehmen des Quelltexts der Zweck. Bedingungen:
+  Markdown-Seite (`.md`, nicht reines HTML) UND als Guide erkennbar UND keine
+  Visualisierung. Guide ist eine Seite mit `layout: guide` ODER gesetztem
+  `duration` – letzteres ist der etablierte Marker (er schaltet auch die
+  nummerierten Arbeitsschritte und Prev/Next frei), und die Guide-Vorlage des
+  Themes wie auch die von didaktikon erzeugten Übungen nutzen `layout: default`
+  plus `duration`. Nur auf `layout: guide` zu prüfen würde den Button dort
+  entfernen. Doku-Seiten haben kein `duration`; Visualisierungen sind
+  ausgeschlossen, weil ihr Inhalt nicht sinnvoll als Markdown kopierbar ist.
 -->
 <html lang="de">
 <head>
@@ -47,13 +55,13 @@
 <title>ATVANTAGE Academy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1786681994"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1786681994">
-<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1786681994">
-<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1786681994">
-<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1786681994"><link rel="stylesheet" href="/academy-online/theme/academy/print.css?v=1786681994">
-<script src="/academy-online/theme/academy/atvantage.js?v=1786681994" defer></script>
-<script src="/academy-online/theme/jekyll/site.js?v=1786681994" defer></script>
-<link rel="stylesheet" href="/academy-online/theme/academy/highlight.css?v=1786681994">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1786688834"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1786688834">
+<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1786688834">
+<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1786688834">
+<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1786688834"><link rel="stylesheet" href="/academy-online/theme/academy/print.css?v=1786688834">
+<script src="/academy-online/theme/academy/atvantage.js?v=1786688834" defer></script>
+<script src="/academy-online/theme/jekyll/site.js?v=1786688834" defer></script>
+<link rel="stylesheet" href="/academy-online/theme/academy/highlight.css?v=1786688834">
 <script type="module">
   const _hlbase = "/academy-online/theme/academy/hljs/";
   Promise.all([import(_hlbase + "core.min.js"), import(_hlbase + "java.min.js")])
@@ -65,7 +73,7 @@
 </script>
 <link rel="icon" href="/academy-online/theme/atvantage/assets/logo-orange.svg">
 
-  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1786681994"></head><body class="avd-academy-guide">
+  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1786688834"></head><body class="avd-academy-guide">
   <a class="avd-academy-skip-link" href="#avd-academy-content">Zum Inhalt springen</a>
   <div class="avd-academy-metanav">
     <span>ATVANTAGE Academy</span>
@@ -99,9 +107,6 @@
 <section class="avd-academy-guide-hero"><nav class="avd-academy-guide-hero__crumbs" aria-label="Brotkrumen"><a href="/academy-online/">Home</a><span>/</span><a href="/academy-online/team/">Das Team</a><span>/</span><span aria-current="page">Ray Wojciechowski</span></nav><div class="avd-academy-guide-hero__meta">
       <div class="avd-academy-guide-hero__tags">
       </div>
-      <button type="button" class="avd-academy-btn avd-academy-btn--ghost avd-academy-copy-md"
-              data-avd-academy-copy-md="#avd-academy-md-source"
-              title="Markdown kopieren" aria-label="Markdown kopieren"></button>
     </div><h1>Ray Wojciechowski</h1>
   </section>
 
@@ -291,150 +296,7 @@ unsere Konzeption unterstützt, beschreibt das Profil der
 }
 </style>
 
-<textarea id="avd-academy-md-source" hidden aria-hidden="true"># Ray Wojciechowski
 
-**Leiter der ATVANTAGE Academy**
-
-Bankkaufmann mit Informatikstudium und seit 1998 Trainer, Unternehmer und
-Fullstack-Entwickler. Ray leitet die ATVANTAGE Academy und verbindet über 25
-Jahre Erfahrung in der IT-Aus- und -Weiterbildung mit eigener
-Entwicklungspraxis: Sein Schwerpunkt liegt heute auf Fullstack-Entwicklung mit
-Spring Boot und Angular, getragen von über 15 Jahren Web-Entwicklung – ergänzt
-um langjährige Erfahrung in Projekt- und Changemanagement. Als Ausbilder mit
-IHK-Eignung begleitet er seit 2010 zusätzlich Nachwuchskräfte.
-
-## Schwerpunkte
-
-- Objektorientierte Programmierung mit Java
-- Fullstack-Entwicklung – Spring Boot im Backend, Angular im Frontend
-- Web-Grundlagen – HTML und CSS
-- Clean Code und Unit Testing mit JUnit
-- Microservices-Architekturen und APIs
-- CI/CD und Versionsverwaltung mit Git
-- IT-Projektmanagement und Changemanagement
-- Didaktik &amp; Ausbildung: langjährige Trainingserfahrung mit heterogenen
-  Lerngruppen, auch in der Ausbildung von Nachwuchskräften
-
-## Praxiserfahrung
-
-Ray kam aus der Bank in die IT – und brachte von dort eine Gewohnheit mit, die
-seine Arbeit bis heute bestimmt: Abläufe so aufzuschreiben, dass andere danach
-arbeiten können. Aus dieser Gewohnheit wurde ein Beruf. Seit 1998 trainiert er,
-seit 2007 mit Schwerpunkt Java, seit 2010 zusätzlich in der Ausbildung von
-Nachwuchskräften – durchgehend mit über 100 Präsenz-Trainingstagen pro Jahr.
-
-### Aus der Organisationspraxis
-
-Nach der Ausbildung zum Bankkaufmann blieb Ray bei der Sparkasse Spree-Neiße:
-zwei Jahre in der Betriebsorganisation, ein Jahr in der IT als Administrator. In
-beiden Abteilungen gehörte das Schreiben von Arbeitsanweisungen zu seinen
-Aufgaben – was heute Prozessbeschreibung heißt. Er lernte die Abläufe eines
-Unternehmens also von innen kennen und musste sie zugleich für andere
-nachvollziehbar machen, bevor er sie technisch umsetzte. Diese Perspektive prägt
-seine Trainings zu Projekt- und Changemanagement bis heute: Technik ist nur so
-gut wie die Organisation, in der sie läuft.
-
-### Trainer und Unternehmer
-
-Von 1998 bis 2021 arbeitete Ray freiberuflich als Trainer – 23 Jahre lang, mit
-Themen von IT-Projekt- und Changemanagement über Programmierung, OOP und UML bis
-zur mobilen Entwicklung im Apple-Ökosystem. Zweimal wurde daraus ein eigenes
-Unternehmen: von 2010 bis 2014 Com training and services in Leipzig, 2015
-skillbird – jeweils als Inhaber und Geschäftsführer. Dort entwarf und hielt er
-vor allem Weiterbildungen für kleine und mittelständische Unternehmen.
-
-Das größte Projekt dieser Zeit fiel in das Jahr 2011: Für eine große
-Versicherung entwarf Ray die Umstiegsschulung von Microsoft Office 2003 auf
-Office 2010 und koordinierte anschließend die Durchführung – über 6.000
-Mitarbeitende in sechs Monaten, aus einem Pool von rund zehn Trainer:innen, von
-denen durchgehend mehrere parallel im Einsatz waren. Wer ein
-Schulungsunternehmen verantwortet, sieht Weiterbildung als Ganzes: Bedarf,
-Konzeption, Durchführung, Logistik und Wirtschaftlichkeit. Genau diese
-Perspektive bringt Ray heute in die Leitung der Academy ein.
-
-### Aus der Entwicklungspraxis
-
-Ray entwickelt selbst. 2008, im ersten Jahr des App Store, veröffentlichte er
-mit „Getankt“ seine erste iOS-App: Sie erfasst Tankmengen und gefahrene
-Kilometer, errechnet daraus den Durchschnittsverbrauch und zeigt den Verlauf für
-mehrere Fahrzeuge in Diagrammen. Aktuell im App Store ist „QuickTimer Clock“ –
-eine Uhr, die sich zugleich als Timer für Pausen und Übungen stellen lässt und
-nach Ablauf Bescheid gibt. Sie ist aus dem eigenen Trainingsalltag entstanden.
-
-Seit 2010 kommt die Web-Entwicklung dazu, zunächst mit Ruby on Rails, heute mit
-Angular und Spring Boot. Über die Jahre sind dabei belastbare HTML- und
-CSS-Kenntnisse entstanden; sie sind die Grundlage, auf der seine
-Angular-Trainings aufbauen.
-
-### Ausbildung junger Talente
-
-Die Arbeit mit Auszubildenden begleitet Ray seit 2010, abgesichert durch die
-IHK-Eignungsbescheinigung zur Ausbildung. Seine Lerngruppen sind selten homogen:
-Sie reichen von Umsteigenden ohne Vorkenntnisse bis zu erfahrenen
-Entwickler:innen. Wie er damit umgeht, folgt unserem
-[Didaktischen Manifest](/academy-online/die-academy/didaktisches-manifest.html) – einer
-sicheren Lernumgebung, in der Fragen und Fehler dazugehören, und „Hilfe zur
-Selbsthilfe“ statt Auswendiglernen.
-
-### Heute: Trainings und Leitung der Academy
-
-Seit 2020 ist Ray Trainer bei ATVANTAGE – Fullstack-Entwicklung mit Spring Boot
-und Angular, dazu CI/CD, Git und APIs. Seit 2023 leitet er die Academy und
-verantwortet die Trainingskonzepte für unsere Kunden; das Training im
-Kundenkontakt bleibt dabei Teil seiner Arbeit.
-
-Wie wir Trainings zuschneiden, wie wir Nachwuchskräfte ausbilden und wie KI
-unsere Konzeption unterstützt, beschreibt das Profil der
-[ATVANTAGE Academy](/academy-online/die-academy/).
-
-## Ausbildung &amp; Zertifizierungen
-
-- **Bankkaufmann** (Ausbildung), Sparkasse Spree-Neiße, 1992–1995
-- **Studium der Informatik**, BTU Cottbus (ohne Abschluss)
-- **Train-the-Trainer** (2000, 2021)
-- **IHK-Eignungsbescheinigung zur Ausbildung** (AdA-Schein, 2010)
-
-## Werdegang
-
-| Zeitraum  | Station                                              | Rolle / Schwerpunkt                                                                         |
-|-----------|------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| seit 2023 | ATVANTAGE GmbH (vormals ARS Computer und Consulting) | Leiter der Academy &amp; Trainer                                                                |
-| seit 2020 | ATVANTAGE GmbH (vormals ARS Computer und Consulting) | Trainer – Fullstack (Spring Boot, Angular), CI/CD, Git                                      |
-| 2015      | skillbird                                            | Inhaber &amp; Geschäftsführer – IT-Schulungen                                                   |
-| 2010–2014 | Com training and services, Leipzig                   | Inhaber &amp; Geschäftsführer – IT-Schulungen                                                   |
-| 1998–2021 | freiberuflich                                        | Trainer – IT-Projekt- &amp; Changemanagement, Programmierung, OOP/UML, Mobile (Apple-Ökosystem) |
-| 1997–1998 | Sparkasse Spree-Neiße                                | Administrator                                                                               |
-| 1995–1997 | Sparkasse Spree-Neiße                                | Sachbearbeiter für Betriebsorganisation                                                     |
-| 1992–1995 | Sparkasse Spree-Neiße                                | Ausbildung zum Bankkaufmann                                                                 |
-
-&lt;!--
-  Rundes Profilbild links neben dem Namen im Hero (grauer Bereich).
-  Bewusst am Dateiende: so bleibt die Body-Ueberschrift `# …` das erste Kind des
-  Inhalts und wird vom Theme ausgeblendet (der Titel steht bereits im Hero).
-  Nicht Teil des Drucklayouts (@media print).
---&gt;
-&lt;style&gt;
-.avd-academy-guide-hero h1::before {
-  content: &quot;&quot;;
-  display: inline-block;
-  vertical-align: middle;
-  width: 7rem;
-  height: 7rem;
-  margin-right: 1.25rem;
-  border-radius: 50%;
-  background: url(&apos;{{ &quot;/team/img/ray-wojciechowski.jpg&quot; | relative_url }}&apos;) center / cover no-repeat;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 6px rgba(0, 0, 0, .18);
-}
-@media print {
-  .avd-academy-guide-hero h1::before { display: none !important; }
-}
-&lt;/style&gt;
-
-## Weiterführende Informationen
-
-- [GitHub-Profil](https://github.com/raywo)
-- [LinkedIn-Profil](https://www.linkedin.com/in/ray-wojciechowski/)
-</textarea>
     </main>
 
     <aside class="avd-academy-guide-sidebar">
