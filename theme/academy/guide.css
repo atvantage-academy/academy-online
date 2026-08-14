@@ -84,6 +84,24 @@
 }
 .avd-academy-guide-hero--slim h1 { font-size: var(--h1-base, 38px); }
 
+/* Der rechte Bereich wird bei Visualisierungen gar nicht gerendert (default.html).
+   Das Raster ist deshalb EINSPALTIG, und der Inhalt bekommt die Breite, die sonst
+   Sidebar (300px) und Spalte (4rem) belegen – plus einen größeren Seitenrahmen:
+   von ~836px auf 1280px.
+
+   Bewusst NICHT 100%: Der Inhalt bleibt über `--avd-academy-guide-max` zentriert
+   gerahmt, damit Text und Diagramme auf breiten Schirmen nicht auseinanderlaufen.
+   Der Wert wirkt über den Gutter auch auf den Hero – Hero-Balken und Inhalt bleiben
+   damit auf derselben Kante.
+
+   Kompound-Selektor (beide Klassen, Spezifität 0,2,0), damit die Überschreibung
+   unabhängig von der Quellordnung gegen `.avd-academy-guide` (0,1,0) gewinnt. */
+.avd-academy-guide.avd-academy-guide--viz { --avd-academy-guide-max: 1280px; }
+.avd-academy-guide--viz .avd-academy-guide-layout {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
 /* --- Tag-Pillen ----------------------------------------------------------- */
 .avd-academy-tag {
   display: inline-block;
