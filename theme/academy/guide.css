@@ -101,6 +101,14 @@
   grid-template-columns: minmax(0, 1fr);
   gap: 0;
 }
+/* Der Hero-Titel ist regulär auf 900px begrenzt – eine Lesebreite, die zur ~836px
+   schmalen Inhaltsspalte des zweispaltigen Layouts passt und dort nie auffällt.
+   In dieser Ansicht läuft der Inhalt auf 1280px; die Kappung ließe den Titel 380px
+   früher enden und damit sichtbar nicht mehr bündig mit dem Inhalt stehen. Hier
+   also aufheben: Hero-Titel und Inhalt teilen dieselbe Box.
+   Spezifität 0,2,1 gegen die Basisregel 0,1,1 – gewinnt unabhängig von der
+   Quellordnung. */
+.avd-academy-guide--viz .avd-academy-guide-hero h1 { max-width: none; }
 
 /* --- Tag-Pillen ----------------------------------------------------------- */
 .avd-academy-tag {
