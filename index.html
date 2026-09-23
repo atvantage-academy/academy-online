@@ -23,8 +23,8 @@
     description: "…"                → Meta-Description
     duration:    8                  → Zahl in Minuten → Hero-Tag „ca. 8 Minuten“
                                        (ungefähre LESEDAUER; bei Guides/Übungen die
-                                       Dauer der Übung). Entfällt bei
-                                       `layout: visualization`.
+                                       Dauer der Übung, bei Visualisierungen die
+                                       Bearbeitungszeit – dort unüblich, aber erlaubt).
     topics:      ["Cloud & DevOps"] → weitere Hero-Tags
     resources:   [{title, url, icon}, …] → Sidebar-Karte „Weiterführende Informationen“.
                                        title und/oder icon (Bildpfad); icon erscheint
@@ -37,94 +37,120 @@
                                        Seite (diese wird automatisch angehängt); in
                                        der `index.md` gesetzt wird sie vererbt.
 
-  „Markdown kopieren“ (Button im Hero) erscheint NUR auf Guides (Übungen,
-  Anleitungen) – dort ist das Übernehmen des Quelltexts der Zweck. Bedingungen:
-  Markdown-Seite (`.md`, nicht reines HTML) UND als Guide erkennbar UND keine
-  Visualisierung. Guide ist eine Seite mit `layout: guide` ODER gesetztem
-  `duration` – letzteres ist der etablierte Marker, und die Guide-Vorlage des
-  Themes wie auch die von didaktikon erzeugten Übungen nutzen `layout: page`
-  plus `duration`. Nur auf `layout: guide` zu prüfen würde den Button dort
-  entfernen. Doku-Seiten haben kein `duration`; Visualisierungen sind
-  ausgeschlossen, weil ihr Inhalt nicht sinnvoll als Markdown kopierbar ist.
+  „Markdown kopieren“ (Button im Hero) erscheint NUR auf Guides – dort ist das
+  Übernehmen des Quelltexts der Zweck. Bedingungen: Markdown-Seite (`.md`, nicht
+  reines HTML) UND der Schalter `toolbar.copy` (Vorgabe: nur `layout: guide`, siehe
+  `_includes/avd-switch.html`). Doku-Seiten und Visualisierungen haben ihn nicht –
+  bei letzteren, weil ihr Inhalt nicht sinnvoll als Markdown kopierbar ist.
 
-  QR-CODE der Seitenadresse + DRUCKEN-KNOPF: In dieser Ansicht (`visualization`)
-  stehen beide rechts im Hero – QR links, Drucken rechts. Sie hat weder Kopfzeile
-  noch Sidebar, in der sie sonst Platz hätten.
+  DIE SEITENWERKZEUGE – QR-Code, Farbschema-Umschalter, Drucken – sind EINE
+  Komponente (`_includes/tools.html`) an zwei Standorten in diesem Rahmen:
 
-  Auf `default`/`guide` steht im Hero KEINES von beiden: Der QR-Code sitzt in der
-  Kopfzeile neben dem Farbschema-Umschalter (siehe `_includes/header.html`), und zum
-  Drucken bleibt es beim Browser-Befehl (Strg/Cmd+P). Tooltip des QR-Codes überall:
-  „Diese Seite auf Deinem Smartphone öffnen“. Er wird erst im Browser erzeugt (theme/academy/atvantage.js), weil die
+    Kopfzeile   `chrome: true`  (page, guide)      QR + Farbschema
+    Hero rechts `hero_tools`    (visualization)    QR + Farbschema + Drucken
+
+  Die Regel dahinter ist die Kopfzeile: Wo es sie gibt, tragen die Werkzeuge sie;
+  wo nicht, tritt der Hero an ihre Stelle. Drucken gibt es nur dort, weil auf einer
+  gewöhnlichen Seite der Browser-Befehl (Strg/Cmd+P) genügt, die rahmenlose
+  Ansicht aber keinen anderen Weg aufs Papier hat.
+
+  Der QR-Code wird erst im Browser erzeugt (theme/academy/atvantage.js), weil die
   Adresse zur Build-Zeit nicht feststeht; ohne JavaScript erscheint er nicht.
-  Kein Front-Matter-Schalter: Es gibt keine Seite, auf der der Weg aufs eigene
-  Smartphone schaden würde.
 --><html lang="de">
 <head>
   <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1"><title>ATVANTAGE Academy · ATVANTAGE Academy</title>
-<meta name="description" content="Der Online-Auftritt der ATVANTAGE Academy."><link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>ATVANTAGE Academy · ATVANTAGE Academy</title><meta name="description" content="Der Online-Auftritt der ATVANTAGE Academy."><meta property="og:site_name" content="ATVANTAGE Academy">
+<meta property="og:title" content="ATVANTAGE Academy">
+<meta property="og:description" content="Der Online-Auftritt der ATVANTAGE Academy.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://atvantage-academy.github.io/academy-online/">
+<meta property="og:url" content="https://atvantage-academy.github.io/academy-online/"><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1790154947"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1790154947">
-<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1790154947">
-<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1790154947">
-<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1790154947"><link rel="stylesheet" href="/academy-online/theme/academy/print.css?v=1790154947">
-<script src="/academy-online/theme/academy/atvantage.js?v=1790154947" defer></script>
-<script src="/academy-online/theme/jekyll/site.js?v=1790154947" defer></script>
-<link rel="stylesheet" href="/academy-online/theme/academy/highlight.css?v=1790154947">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/academy-online/theme/atvantage/styles.css?v=1790156835"><link rel="stylesheet" href="/academy-online/theme/academy/tokens.css?v=1790156835">
+<link rel="stylesheet" href="/academy-online/theme/academy/base.css?v=1790156835">
+<link rel="stylesheet" href="/academy-online/theme/academy/components.css?v=1790156835">
+<link rel="stylesheet" href="/academy-online/theme/jekyll/site.css?v=1790156835"><link rel="stylesheet" href="/academy-online/theme/academy/print.css?v=1790156835">
+<script src="/academy-online/theme/academy/atvantage.js?v=1790156835" defer></script>
+<script src="/academy-online/theme/jekyll/site.js?v=1790156835" defer></script>
+<link rel="stylesheet" href="/academy-online/theme/academy/highlight.css?v=1790156835">
 <script type="module">
   const _hlbase = "/academy-online/theme/academy/hljs/";
-  Promise.all([import(_hlbase + "core.min.js"), import(_hlbase + "java.min.js")])
-    .then(([core, java]) => {
+  const _hlsprachen = ["java", "http", "json", "xml"];
+  Promise.all([import(_hlbase + "core.min.js"), ..._hlsprachen.map((s) => import(_hlbase + s + ".min.js"))])
+    .then(([core, ...grammatiken]) => {
       const hljs = core.default;
-      hljs.registerLanguage("java", java.default);
-      document.querySelectorAll("pre code.language-java").forEach((el) => hljs.highlightElement(el));
+      _hlsprachen.forEach((s, i) => hljs.registerLanguage(s, grammatiken[i].default));
+      const _auswahl = _hlsprachen.map((s) => "pre code.language-" + s).join(",");
+      const _faerben = (wurzel) => (wurzel || document)
+        .querySelectorAll(_auswahl)
+        .forEach((el) => { if (!el.dataset.highlighted) { hljs.highlightElement(el); } });
+      _faerben(document);
+
+      /* NACHTRAEGLICH EINGEFUEGTER CODE. Die Hervorhebung laeuft einmal beim Laden.
+         Eine Seite, die ihre Codebloecke per Skript einsetzt - eine Visualisierung,
+         die rohe Nachrichten durchschaltet -, bekam deshalb gar keine Farben und
+         baute sich einen eigenen Hervorheber. Genau die Kopie, die das Theme
+         verhindern soll.
+
+         `AvdHighlight.apply(knoten)` faerbt, was seither dazugekommen ist; `hljs`
+         liegt daneben fuer Faelle, die mehr brauchen. Das Ereignis sagt Seiten, die
+         frueh zeichnen, wann der Haken da ist - die Module laden asynchron. */
+      window.AvdHighlight = { hljs, apply: _faerben, languages: _hlsprachen.slice() };
+      document.dispatchEvent(new CustomEvent("avd-academy-highlight-ready"));
+
+      /* Statuszeile nach Klasse einfaerben. highlight.js gibt jedem dreistelligen
+         Code dieselbe Klasse `hljs-number` - in einem Mitschnitt ist aber genau das
+         die Stelle, auf die man zuerst sieht: 2xx ist etwas anderes als 4xx.
+         Deshalb hier die einzige eigene Zutat, und bewusst nur diese: Die
+         Statusklassen von HTTP aendern sich nicht, das bleibt stabil. */
+      document.querySelectorAll("pre code.language-http .hljs-number").forEach((el) => {
+        const code = parseInt(el.textContent, 10);
+        if (code >= 100 && code <= 599) {
+          el.classList.add("avd-academy-http-status--" + Math.floor(code / 100) + "xx");
+        }
+      });
     });
 </script>
 <link rel="apple-touch-icon" sizes="180x180" href="/academy-online/theme/atvantage/assets/icon-180.png">
 <link rel="icon" href="/academy-online/theme/atvantage/assets/icon-32.png">
 <link rel="icon" sizes="16x16" href="/academy-online/theme/atvantage/assets/icon-16.png">
 
-  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1790154947"></head><body class="avd-academy-guide">
-  <a class="avd-academy-skip-link" href="#avd-academy-content">Zum Inhalt springen</a><div class="avd-academy-metanav">
-    <span>ATVANTAGE Academy</span>
+  <link rel="stylesheet" href="/academy-online/theme/academy/guide.css?v=1790156835"></head><body class="avd-academy-guide">
+  <a class="avd-academy-skip-link" href="#avd-academy-content">Zum Inhalt springen</a><div class="avd-academy-metanav"><span>ATVANTAGE Academy</span>
   </div>
 
-  <header class="avd-academy-header">
-  <a class="avd-academy-header__brand" href="/academy-online/" aria-label="Startseite">
-    <img class="avd-academy-header__logo"
-         src="/academy-online/theme/atvantage/assets/logo-orange.svg"
-         alt="ATVANTAGE Academy">
-  </a>
-  <button class="avd-academy-btn avd-academy-btn--ghost avd-academy-header__burger" data-avd-academy-nav-toggle="#avd-academy-main-nav"
-          aria-label="Navigation umschalten" aria-expanded="false">☰</button>
-  <nav class="avd-academy-header__nav" id="avd-academy-main-nav"><a href="/academy-online/" aria-current="page">Start</a><div class="avd-academy-header__group" data-avd-academy-menu>
+  <header class="avd-academy-header" data-avd-academy-header><a class="avd-academy-header__brand" href="/academy-online/" aria-label="Startseite"><img class="avd-academy-header__logo" src="/academy-online/theme/atvantage/assets/logo-orange.svg" alt="ATVANTAGE Academy"></a><button class="avd-academy-tool avd-academy-header__burger" data-avd-academy-nav-toggle="#avd-academy-main-nav"
+          aria-label="Navigation umschalten" aria-expanded="false">☰</button><nav class="avd-academy-header__nav" id="avd-academy-main-nav">
+      <a href="/academy-online/" aria-current="page">Start</a><div class="avd-academy-header__group" data-avd-academy-menu>
         <button type="button" class="avd-academy-header__grouptoggle"
-                aria-expanded="false" aria-haspopup="true">Die Academy<span class="avd-academy-header__caret" aria-hidden="true">▾</span></button><div class="avd-academy-header__submenu" role="menu"><a role="menuitem" href="/academy-online/die-academy/">Profil</a><a role="menuitem" href="/academy-online/die-academy/didaktisches-manifest.html">Didaktisches Manifest</a>
+                aria-expanded="false" aria-haspopup="true">Die Academy<span class="avd-academy-header__caret" aria-hidden="true">▾</span></button>
+        <div class="avd-academy-header__submenu" role="menu">
+          <a role="menuitem" href="/academy-online/die-academy/">Profil</a>
+          <a role="menuitem" href="/academy-online/die-academy/didaktisches-manifest.html">Didaktisches Manifest</a>
         </div>
       </div><div class="avd-academy-header__group" data-avd-academy-menu>
         <button type="button" class="avd-academy-header__grouptoggle"
-                aria-expanded="false" aria-haspopup="true">Das Team<span class="avd-academy-header__caret" aria-hidden="true">▾</span></button><div class="avd-academy-header__submenu avd-academy-header__submenu--hasicons" role="menu"><a role="menuitem" href="/academy-online/team/ray-wojciechowski.html"><img class="avd-academy-linkicon" src="/academy-online/team/img/ray-wojciechowski.jpg" alt="">Ray Wojciechowski</a><a role="menuitem" href="/academy-online/team/ralf-ueberfuhr.html"><img class="avd-academy-linkicon" src="/academy-online/team/img/ralf-ueberfuhr.png" alt="">Ralf Ueberfuhr</a>
+                aria-expanded="false" aria-haspopup="true">Das Team<span class="avd-academy-header__caret" aria-hidden="true">▾</span></button>
+        <div class="avd-academy-header__submenu avd-academy-header__submenu--hasicons" role="menu">
+          <a role="menuitem" href="/academy-online/team/ray-wojciechowski.html"><img class="avd-academy-linkicon" src="/academy-online/team/img/ray-wojciechowski.jpg" alt="">Ray Wojciechowski</a>
+          <a role="menuitem" href="/academy-online/team/ralf-ueberfuhr.html"><img class="avd-academy-linkicon" src="/academy-online/team/img/ralf-ueberfuhr.png" alt="">Ralf Ueberfuhr</a>
         </div>
       </div>
   </nav><div class="avd-academy-header__tools"><button type="button" class="avd-academy-qr" data-avd-academy-qr hidden
-            title="Diese Seite auf Deinem Smartphone öffnen"
-            aria-label="Diese Seite auf Deinem Smartphone öffnen"></button>
-    <button type="button" class="avd-academy-btn avd-academy-btn--ghost avd-academy-theme-toggle"
-            data-avd-academy-theme-toggle
-            title="Farbschema umschalten (hell/dunkel)"
-            aria-label="Farbschema umschalten">◐</button>
-  </div>
+                title="Diese Seite auf Deinem Smartphone öffnen"
+                aria-label="Diese Seite auf Deinem Smartphone öffnen"></button><button type="button" class="avd-academy-tool avd-academy-tool--theme avd-academy-theme-toggle" data-avd-academy-theme-toggle
+              title="Farbschema umschalten (hell/dunkel)"
+              aria-label="Farbschema umschalten">◐</button></div>
 </header>
-
-  <section class="avd-academy-guide-hero"><nav class="avd-academy-guide-hero__crumbs" aria-label="Brotkrumen"><a href="/academy-online/">Home</a></nav><div class="avd-academy-guide-hero__meta">
+<section class="avd-academy-guide-hero"
+           aria-labelledby="avd-academy-page-title"><nav class="avd-academy-guide-hero__crumbs" aria-label="Brotkrumen"><a href="/academy-online/">Home</a></nav><div class="avd-academy-guide-hero__meta">
       <div class="avd-academy-guide-hero__tags">
       </div>
       <div class="avd-academy-guide-hero__actions">
       </div>
-    </div><h1>ATVANTAGE Academy</h1>
+    </div><h1 id="avd-academy-page-title">ATVANTAGE Academy</h1>
   </section><div class="avd-academy-guide-layout">
     <main class="avd-academy-guide-main" id="avd-academy-content">
-      <h1 id="atvantage-academy">ATVANTAGE Academy</h1>
 
 <p>Willkommen beim Online-Auftritt der <strong>ATVANTAGE Academy</strong>. Wir gestalten
 Weiterbildung, die Menschen befähigt, sich dauerhaft selbst zu helfen – nach
@@ -173,15 +199,13 @@ Durchführung unserer Trainings orientieren.</p>
 
   <footer class="avd-academy-footer">
   <div class="avd-academy-footer__grid">
-    <div>
-      <strong>ATVANTAGE Academy</strong>
+    <div><strong>ATVANTAGE Academy</strong>
       <p>Weiterbildung, die zur Selbsthilfe befähigt.</p>
     </div><div>
       <strong>Kontakt</strong>
-      <p><a href="https://www.atvantage.com" target="_blank" rel="noopener">https://www.atvantage.com</a><br><a href="mailto:academy@atvantage.com">academy@atvantage.com</a><br>
+      <p><a href="https://www.atvantage.com" target="_blank" rel="noopener">Website</a><br><a href="mailto:academy@atvantage.com">academy@atvantage.com</a><br>
       </p>
-    </div><div>
-      <strong>Mehr</strong>
+    </div><div><strong>Mehr</strong>
       <p><a href="https://www.atvantage.com/leistungen/schulungsangebot" target="_blank" rel="noopener">Wir bei ATVANTAGE</a></p>
     </div></div>
   <div class="avd-academy-footer__legal">

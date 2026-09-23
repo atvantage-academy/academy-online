@@ -67,6 +67,7 @@
   .avd-academy-copy,
   .avd-academy-print-btn,
   .avd-academy-theme-toggle,
+  .avd-academy-tool,
   [data-avd-academy-toc-box],
   [data-avd-academy-progress] { display: none !important; }
 
@@ -186,4 +187,63 @@
   h1, h2, h3, h4 { break-after: avoid-page; }
   pre, blockquote, table, figure, img { break-inside: avoid; }
   img { max-width: 100% !important; }
+
+  /* --- Tabs: auf Papier gibt es keine Reiter ------------------------------
+     Die Leiste ist eine Bedienung und auf dem Papier sinnlos; sie entfaellt. Die
+     Zusammenfassungen kommen dafuer zurueck - sie sind im Ausdruck die
+     Zwischenueberschriften, an denen man sich orientiert. Das Aufklappen selbst
+     macht atvantage.js (siehe dort: ein geschlossenes <details> verbirgt seinen
+     Inhalt im Shadow DOM, da kommt CSS nicht heran).
+
+     DIESER BLOCK GEHOERT IN `@media print` UND NUR DORTHIN. Er stand einmal am
+     Dateiende und damit DANEBEN: print.css wird ohne `media="print"` eingebunden
+     und kapselt selbst. Die Folge war, dass die Leiste auf dem BILDSCHIRM
+     ausgeblendet und die Zusammenfassungen eingeblendet waren - also genau ein
+     Akkordeon, und wegen `!important` durch nichts zu ueberschreiben.
+     ---------------------------------------------------------------------- */
+  /* Auch das Gitter der seitlichen Fassung: Ohne die Leiste stuende sonst eine
+     leere Spalte neben dem Text, und der Text haette nur den Rest der Seite. */
+  .avd-academy-tabs--side { display: block !important; }
+  .avd-academy-tabs__bar { display: none !important; }
+  .avd-academy-tabs--enhanced > .avd-academy-tabs__panel > summary {
+    display: block !important;
+    font-weight: var(--avd-academy-fw-bold, 700);
+    break-after: avoid;
+  }
+  .avd-academy-tabs--enhanced > .avd-academy-tabs__panel > summary::before { content: none; }
+
+  /* Akkordeon: Auf Papier steht alles offen. Ein zugeklappter Bereich waere
+     hier schlicht verlorener Inhalt - dieselbe Ueberlegung wie beim Fold. Der
+     Knopf wird wieder zu dem, was er im Quelltext ist: eine Ueberschrift. Sie
+     bleibt bei ihrem Text (`break-after: avoid`), sonst steht sie allein unten
+     auf der Seite.
+
+     `visibility` MUSS mit zurueckgesetzt werden: Die Bewegung am Bildschirm
+     haengt daran, und eine unsichtbare Zeile druckt als leerer Platz - ein
+     Fehler, den man erst auf dem Papier sieht. */
+  .avd-academy-accordion__region {
+    display: block !important;
+    grid-template-rows: none !important;
+  }
+  .avd-academy-accordion__body {
+    visibility: visible !important;
+    overflow: visible !important;
+    padding-bottom: 0 !important;
+  }
+  .avd-academy-accordion__toggle {
+    display: block !important;
+    padding: 0 !important;
+    cursor: auto;
+    break-after: avoid;
+  }
+  .avd-academy-accordion__toggle::before { content: none !important; }
+  .avd-academy-accordion--enhanced > :is(h2, h3, h4, h5, h6) { border-top: 0 !important; }
+
+  /* Zeilenerklärung: Auf Papier gibt es nichts aufzuklappen. Der Marker entfällt,
+     die Zeile bleibt eine Zeile, und Zeile und Erklärung gehören zusammen auf
+     dieselbe Seite. */
+  .avd-academy-walkthrough { overflow: visible !important; }
+  .avd-academy-walkthrough__line > summary::before { content: none !important; }
+  .avd-academy-walkthrough__line > summary { cursor: auto; break-after: avoid; }
+  .avd-academy-walkthrough__line { break-inside: avoid; }
 }

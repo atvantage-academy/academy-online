@@ -5,82 +5,82 @@
   "type": "object",
   "properties": {
     "title": {
-      "type": "string",
-      "description": "Titel der Site – erscheint in der Kopfzeile neben dem Logo und in `<title>`. STANDARD: „ATVANTAGE Academy“."
+      "$ref": "frontmatter.schema.json#/definitions/sprachtext",
+      "description": "JEKYLL-STANDARD – Titel der Site – erscheint in der Kopfzeile neben dem Logo und in `<title>`. STANDARD: „ATVANTAGE Academy“. MEHRSPRACHIG: auch als Sprachkarte `{ de: …, en: … }`."
     },
     "description": {
-      "type": "string",
-      "description": "Kurzbeschreibung der Site; Rückfall für `<meta name=\"description\">`, wenn eine Seite keine eigene trägt. STANDARD: keine."
+      "$ref": "frontmatter.schema.json#/definitions/sprachtext",
+      "description": "JEKYLL-STANDARD – Kurzbeschreibung der Site; Rückfall für `<meta name=\"description\">`, wenn eine Seite keine eigene trägt. STANDARD: keine. MEHRSPRACHIG: auch als Sprachkarte."
     },
     "lang": {
       "type": "string",
       "default": "de",
-      "description": "Sprache der Site (BCP-47) – landet in `<html lang>`. Einzelne Seiten überschreiben sie im Front Matter."
+      "description": "Sprache der Site (BCP-47) – landet in `<html lang>` und ist zugleich die STANDARDSPRACHE: Bei Mehrsprachigkeit wohnt ihr Sprachbaum in der Wurzel (ohne Pfad-Präfix), und eine fehlende Übersetzung fällt auf sie zurück. Einzelne Seiten überschreiben sie im Front Matter."
     },
     "url": {
       "type": "string",
-      "description": "Jekyll-Standard: Basis-URL der Site OHNE Pfad (z. B. `https://example.github.io`)."
+      "description": "JEKYLL-STANDARD – Basis-URL der Site OHNE Pfad (z. B. `https://example.github.io`)."
     },
     "baseurl": {
       "type": "string",
       "default": "",
-      "description": "Jekyll-Standard: Pfadpräfix der Site (Projektseiten: `/reponame`, eigene Domain: leer). Muss dem veröffentlichten Pfad entsprechen, sonst brechen alle Asset-Pfade."
+      "description": "JEKYLL-STANDARD – Pfadpräfix der Site (Projektseiten: `/reponame`, eigene Domain: leer). Muss dem veröffentlichten Pfad entsprechen, sonst brechen alle Asset-Pfade."
     },
     "layouts_dir": {
       "type": "string",
-      "description": "Jekyll-Standard: Verzeichnis der Layouts. Für das Academy-Theme `theme/jekyll/_layouts`."
+      "description": "JEKYLL-STANDARD – Verzeichnis der Layouts. Für das Academy-Theme `theme/jekyll/_layouts`."
     },
     "includes_dir": {
       "type": "string",
-      "description": "Jekyll-Standard: Verzeichnis der Includes. Für das Academy-Theme `theme/jekyll/_includes`."
+      "description": "JEKYLL-STANDARD – Verzeichnis der Includes. Für das Academy-Theme `theme/jekyll/_includes`."
     },
     "plugins": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "Jekyll-Standard: aktive Plugins. Das Theme setzt `jekyll-optional-front-matter` (Markdown ohne Front Matter) und `jekyll-relative-links` (relative `.md`-Links) voraus."
+      "description": "JEKYLL-STANDARD – aktive Plugins. Das Theme setzt `jekyll-optional-front-matter` (Markdown ohne Front Matter) und `jekyll-relative-links` (relative `.md`-Links) voraus."
     },
     "markdown": {
       "type": "string",
       "default": "kramdown",
-      "description": "Jekyll-Standard: Markdown-Prozessor. Das Theme ist auf `kramdown` im GFM-Modus abgestimmt."
+      "description": "JEKYLL-STANDARD – Markdown-Prozessor. Das Theme ist auf `kramdown` im GFM-Modus abgestimmt."
     },
     "kramdown": {
       "type": "object",
-      "description": "Jekyll-Standard: kramdown-Optionen. Das Theme erwartet `input: GFM` und `hard_wrap: false`."
+      "description": "JEKYLL-STANDARD – kramdown-Optionen. Das Theme erwartet `input: GFM` und `hard_wrap: false`."
     },
     "theme": {
       "type": [
         "string",
         "null"
       ],
-      "description": "Jekyll-Standard: Theme-Gem. Das Academy-Theme ist KEIN Gem – die Defaults setzen `theme: null`."
+      "description": "JEKYLL-STANDARD – Theme-Gem. Das Academy-Theme ist KEIN Gem – die Defaults setzen `theme: null`."
     },
     "exclude": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "Jekyll-Standard: Pfade, die NICHT in die Ausgabe wandern. Auch die Schema-Prüfung überspringt sie."
+      "description": "JEKYLL-STANDARD – Pfade, die NICHT in die Ausgabe wandern. Auch die Schema-Prüfung überspringt sie."
     },
     "include": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "Jekyll-Standard: Pfade, die trotz führendem Punkt/Unterstrich in die Ausgabe wandern."
+      "description": "JEKYLL-STANDARD – Pfade, die trotz führendem Punkt/Unterstrich in die Ausgabe wandern."
     },
     "keep_files": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "Jekyll-Standard: Pfade in der Ausgabe, die ein Build nicht löscht."
+      "description": "JEKYLL-STANDARD – Pfade in der Ausgabe, die ein Build nicht löscht."
     },
     "defaults": {
       "type": "array",
-      "description": "Jekyll-Standard: Front-Matter-Vorgaben je Pfad/Typ. Das Theme setzt hier `layout: page` für die ganze Site – deshalb braucht eine Seite kein `layout:`. ACHTUNG: Jekyll ERSETZT diese Liste, wenn eine Site sie selbst definiert; die Layout-Regel gehört dann mit hinein. Das Wort gehört Jekyll – die Bausteine des Themes stehen unter `components`.",
+      "description": "JEKYLL-STANDARD – Front-Matter-Vorgaben je Pfad/Typ. Das Theme setzt hier `layout: page` für die ganze Site – deshalb braucht eine Seite kein `layout:`. ACHTUNG: Jekyll ERSETZT diese Liste, wenn eine Site sie selbst definiert; die Layout-Regel gehört dann mit hinein. Das Wort gehört Jekyll – die Bausteine des Themes stehen unter `components`.",
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -108,28 +108,129 @@
     },
     "permalink": {
       "type": "string",
-      "description": "Jekyll-Standard: URL-Muster der Seiten."
+      "description": "JEKYLL-STANDARD – URL-Muster der Seiten."
     },
     "timezone": {
       "type": "string",
-      "description": "Jekyll-Standard: Zeitzone (IANA), z. B. `Europe/Berlin`."
+      "description": "JEKYLL-STANDARD – Zeitzone (IANA), z. B. `Europe/Berlin`."
     },
     "encoding": {
       "type": "string",
       "default": "utf-8",
-      "description": "Jekyll-Standard: Zeichenkodierung der Quelldateien."
+      "description": "JEKYLL-STANDARD – Zeichenkodierung der Quelldateien."
     },
     "strict_front_matter": {
       "type": "boolean",
-      "description": "Jekyll-Standard: bricht den Build bei syntaktisch fehlerhaftem Front Matter ab. Prüft NUR die YAML-Syntax – die Feldnamen prüft dieses Schema."
+      "description": "JEKYLL-STANDARD – bricht den Build bei syntaktisch fehlerhaftem Front Matter ab. Prüft NUR die YAML-Syntax – die Feldnamen prüft dieses Schema."
     },
     "collections": {
+      "type": [
+        "object",
+        "array"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "description": "JEKYLL-STANDARD – eigene Collections. Als Abschnitt (`neuigkeiten: { output: true }`) oder als bloße Namensliste. Die Schema-Prüfung liest diesen Schlüssel: Dokumente der hier erklärten Collections werden wie Seiten geprüft – zusammen mit `_posts`, das Jekyll eingebaut kennt."
+    },
+    "relative_links": {
       "type": "object",
-      "description": "Jekyll-Standard: eigene Collections."
+      "additionalProperties": false,
+      "description": "Optionen von `jekyll-relative-links` – dem Plugin, das relative Verweise auf `.md`-Quelldateien in die Adressen der gebauten Seiten umschreibt.",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "`false` schaltet das Umschreiben ab. Dann zeigt jeder `.md`-Verweis im Markdown ins Leere – das Theme setzt das Umschreiben voraus."
+        },
+        "collections": {
+          "type": "boolean",
+          "default": false,
+          "description": "Auch Collection-Dokumente umschreiben. OHNE diesen Schalter bleibt ein `.md`-Verweis in einem Collection-Dokument unverändert stehen und ist im Browser tot; Jekyll meldet dabei nichts. Die Theme-Defaults setzen ihn auf `true` – wer sie nicht lädt, setzt ihn selbst."
+        },
+        "exclude": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Dateien, deren Verweise unangetastet bleiben (Glob-Muster relativ zur Quelle)."
+        }
+      }
     },
     "sass": {
       "type": "object",
-      "description": "Jekyll-Standard: Sass-Optionen. Das Theme liefert fertiges CSS und braucht sie nicht."
+      "description": "JEKYLL-STANDARD – Sass-Optionen. Das Theme liefert fertiges CSS und braucht sie nicht."
+    },
+    "source": {
+      "type": "string",
+      "default": ".",
+      "description": "JEKYLL-STANDARD – Quellverzeichnis des Builds. Die Pipelines übergeben es als `--source`; in der Datei nur nötig, wenn die Quellen NICHT im Wurzelverzeichnis liegen."
+    },
+    "destination": {
+      "type": "string",
+      "default": "./_site",
+      "description": "JEKYLL-STANDARD – Zielverzeichnis des Builds. Die Pipelines übergeben es als `--destination` – ein Wert hier wird davon überstimmt."
+    },
+    "data_dir": {
+      "type": "string",
+      "default": "_data",
+      "description": "JEKYLL-STANDARD – Verzeichnis der Datendateien; sie stehen als `site.data` in Liquid."
+    },
+    "collections_dir": {
+      "type": "string",
+      "description": "JEKYLL-STANDARD – Verzeichnis, unter dem die Collections liegen. STANDARD: das Wurzelverzeichnis."
+    },
+    "markdown_ext": {
+      "type": "string",
+      "default": "markdown,mkdown,mkdn,mkd,md",
+      "description": "JEKYLL-STANDARD – Dateiendungen, die als Markdown verarbeitet werden. Wer hier kürzt, nimmt Dateien aus der Ausgabe – die Schema-Prüfung schaut sie trotzdem an."
+    },
+    "highlighter": {
+      "type": "string",
+      "default": "rouge",
+      "description": "JEKYLL-STANDARD – serverseitige Syntax-Hervorhebung. Das Theme färbt Code CLIENTSEITIG mit highlight.js (`code.highlight`) und schaltet Rouge in seinen Defaults ab; beides zugleich erzeugt doppeltes Markup."
+    },
+    "liquid": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "JEKYLL-STANDARD – Liquid-Optionen. `error_mode: strict` meldet einen Tippfehler in Liquid, statt ihn still auszugeben.",
+      "properties": {
+        "error_mode": {
+          "type": "string",
+          "enum": [
+            "lax",
+            "warn",
+            "strict"
+          ],
+          "default": "warn",
+          "description": "Wie streng Liquid-Fehler behandelt werden."
+        },
+        "strict_filters": {
+          "type": "boolean",
+          "default": false,
+          "description": "Unbekannter Filter bricht den Build ab."
+        },
+        "strict_variables": {
+          "type": "boolean",
+          "default": false,
+          "description": "Unbekannte Variable bricht den Build ab."
+        }
+      }
+    },
+    "future": {
+      "type": "boolean",
+      "default": false,
+      "description": "JEKYLL-STANDARD – ob Seiten mit einem `date` in der ZUKUNFT gebaut werden. STANDARD: nein – eine solche Seite fehlt dann in der Ausgabe, ohne Fehlermeldung."
+    },
+    "unpublished": {
+      "type": "boolean",
+      "default": false,
+      "description": "JEKYLL-STANDARD – ob Seiten mit `published: false` gebaut werden. STANDARD: nein."
+    },
+    "incremental": {
+      "type": "boolean",
+      "default": false,
+      "description": "JEKYLL-STANDARD – experimenteller inkrementeller Build. Beschleunigt die lokale Vorschau, baut aber nicht zuverlässig vollständig – für die Pipeline ungeeignet."
     },
     "audiences": {
       "type": "array",
@@ -143,6 +244,102 @@
     "audience": {
       "type": "string",
       "description": "Die Zielgruppe DIESES Builds. Wird nicht von Hand gesetzt, sondern vom Build als Overlay (`_config.audience.yml`); Seiten und Einträge fremder Zielgruppe entfallen dann. STANDARD: keine – dann ist alles sichtbar (die lokale Vorschau). Der Wert muss in `audiences` deklariert sein."
+    },
+    "audience_filter": {
+      "type": "object",
+      "description": "Welche Zielgruppen eine GEFILTERTE Ausgabe bekommen – gelesen von der Baukomponente `theme/jekyll/_bin/build.sh`. Ein Schlüssel ist eine Zielgruppe aus `audiences`; wer hier steht, bekommt nur Seiten, die ihn in ihrem `audiences` nennen oder gar keine Angabe tragen. Wer hier NICHT steht, bekommt alles Publizierbare. DIE ASYMMETRIE IST ABSICHT UND GEHÖRT DER SITE: „Material der einen Gruppe nicht an die andere“ gilt oft nur in eine Richtung. Das Theme legt die Werte NICHT fest – wie bei `audiences` ist das eine Festlegung des Werkzeugs, das die Site baut. STANDARD: keiner – dann ist jede Ausgabe ungefiltert.",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "exclude_names": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Zusätzlich entfallen Dateien, deren DATEINAME auf eines dieser Glob-Muster passt (z. B. `intern-*`) – die Namenskonvention als Rückfall für Seiten ohne `audiences` im Front Matter. EIN AUSDRÜCKLICHES `audiences` STICHT: Eine Seite, die diese Zielgruppe nennt, bleibt auch dann, wenn ihr Name auf ein Muster passt. STANDARD: keine – dann entscheidet allein das Front Matter."
+          }
+        }
+      }
+    },
+    "i18n": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Mehrsprachigkeit. OHNE DIESEN SCHLÜSSEL IST DIE SITE EINSPRACHIG – kein Pfad-Präfix, kein Umschalter, alles wie bisher in `lang`. Je Sprache ein Ordnerbaum; die Standardsprache (`lang`) wohnt in der Wurzel, jede weitere unter `/«code»/`. Zusammengehörende Seiten verbindet `page_id` im Front Matter – nicht der Pfad, denn Ordner und Dateien tragen je Sprache ihre eigenen Namen. Konfigurierte Texte und Adressen dürfen überall eine Sprachkarte sein (`title: { de: …, en: … }`).",
+      "properties": {
+        "languages": {
+          "type": "array",
+          "minItems": 1,
+          "description": "Die Sprachen, die diese Site führt – die Deklaration, gegen die `lang` je Seite, jede `page_id` und jede Sprachkarte geprüft wird. Die Standardsprache (`lang` der Site) gehört mit in die Liste. Mit weniger als zwei Einträgen bleibt die Site einsprachig.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "code"
+            ],
+            "description": "Eine Sprache der Site.",
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Sprachcode (BCP-47, meist zweistellig) – erscheint in `<html lang>`, im Pfad-Präfix und auf dem Umschalter.",
+                "examples": [
+                  "de",
+                  "en"
+                ]
+              },
+              "base": {
+                "type": "string",
+                "description": "Wurzel des Sprachbaums in der URL. STANDARD: `/` für die Standardsprache, sonst `/«code»/`. Nur setzen, wer anders ausliefert.",
+                "examples": [
+                  "/",
+                  "/en/"
+                ]
+              },
+              "label": {
+                "type": "string",
+                "description": "Beschriftung im Umschalter-Tooltip. STANDARD: der Eigenname der Sprache (Deutsch, English, …), sonst der Code in Großbuchstaben.",
+                "examples": [
+                  "Deutsch",
+                  "English"
+                ]
+              }
+            }
+          }
+        },
+        "switch": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Der Sprachumschalter in der Werkzeugleiste (neben dem Farbschema-Umschalter).",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "default": true,
+              "description": "Umschalter anbieten. STANDARD: an – er erscheint aber nur dort, wo es die Seite in einer anderen Sprache überhaupt gibt. Auf `false` für eine Site, die beide Fassungen getrennt verteilt."
+            },
+            "fallback": {
+              "type": "string",
+              "enum": [
+                "none",
+                "base"
+              ],
+              "default": "none",
+              "description": "Wohin, wenn es zu DIESER Seite keine Fassung in der Zielsprache gibt. `none` = kein Knopf (Standard). `base` = auf die Wurzel des anderen Sprachbaums – sinnvoll bei einer erst teilweise übersetzten Site."
+            }
+          }
+        },
+        "detect": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Auswertung der Browsersprache (`navigator.languages`; ein Accept-Language-Header ist auf einem statischen Hoster nicht lesbar).",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "default": false,
+              "description": "Beim ersten Aufruf einer Sitzung auf die bevorzugte Sprache umleiten, sofern es diese Seite darin gibt. STANDARD: aus – eine Umleitung ist eine Verhaltensänderung. Eine ausdrückliche Wahl am Umschalter gewinnt immer, `?nolang` schaltet sie fallweise ab."
+            }
+          }
+        }
+      }
     },
     "brand": {
       "type": "object",
@@ -159,10 +356,13 @@
           "default": "/theme/atvantage/assets/logo-orange.svg",
           "description": "Logo (Wortmarke) in der Kopfzeile, site-relativer Pfad."
         },
-        "tagline": {
+        "logo_ratio": {
           "type": "string",
-          "default": "ATVANTAGE Academy",
-          "description": "Eine Zeile Markentext in der Metaleiste über der Kopfzeile."
+          "description": "Seitenverhältnis des Logos als «Breite / Höhe», exakt die viewBox der SVG-Datei (z. B. \"260 / 24\"). NUR setzen, wenn das Logo die Akzentfarbe tragen soll: Dann rendert das Theme es als Maske statt als Bild, und dabei geht die Eigengröße der Datei verloren – das Verhältnis ersetzt sie. Ohne dieses Feld bleibt das Logo ein gewöhnliches <img> in seinen eigenen Farben."
+        },
+        "tagline": {
+          "$ref": "frontmatter.schema.json#/definitions/sprachtext",
+          "description": "Eine Zeile Markentext in der Metaleiste über der Kopfzeile. MEHRSPRACHIG: auch als Sprachkarte."
         },
         "website": {
           "type": "string",
@@ -189,6 +389,10 @@
               "description": "Apple-Touch-Icon 180×180 für den iOS-Homescreen."
             }
           }
+        },
+        "og_image": {
+          "type": "string",
+          "description": "VORSCHAUBILD DER SITE für geteilte Links – Rückfall, wenn eine Seite kein eigenes `image` trägt. Setzt `og:image`. Ohne diesen Schlüssel und ohne `image` entsteht kein `og:image`. Empfohlen ist ein Bild im Seitenverhältnis 1,91:1 (z. B. 1200×630); kleinere werden von manchen Diensten nicht als grosse Karte gezeigt."
         }
       }
     },
@@ -235,6 +439,12 @@
           "items": {
             "$ref": "#/definitions/navEintrag"
           }
+        },
+        "compact_after": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 5,
+          "description": "Ab wie vielen Top-Level-Einträgen die Leiste als Burger erscheint – auch am Schreibtisch. STANDARD: 5. Eine zweizeilige Navigationsleiste sieht nicht nach Absicht aus. Zusätzlich misst das Theme den tatsächlichen Umbruch; diese Zahl gilt auch ohne JavaScript."
         }
       }
     },
@@ -251,7 +461,7 @@
         "website": {
           "type": "string",
           "default": "https://www.atvantage.com",
-          "description": "URL der Academy-Website – erscheint in der Footer-Spalte „Kontakt“ und in der Druck-Kontaktzeile. In den Pipelines aus der Org-Variablen `ACADEMY_WEBSITE` gesetzt, damit die URL an genau einer Stelle steht. Ersetzt `brand.website`."
+          "description": "URL der Academy-Website – erscheint in der Footer-Spalte „Kontakt“ als Link mit der Beschriftung „Website“ und in der Druck-Kontaktzeile als ausgeschriebene URL. In den Pipelines aus der Org-Variablen `ACADEMY_WEBSITE` gesetzt, damit die URL an genau einer Stelle steht. Ersetzt `brand.website`."
         },
         "email": {
           "type": "string",
@@ -275,8 +485,8 @@
       "description": "Fußzeile der Site.",
       "properties": {
         "tagline": {
-          "type": "string",
-          "description": "Ein Satz unter dem Site-Titel in der linken Spalte. STANDARD: keiner. Nicht zu verwechseln mit `brand.tagline`, der Zeile in der Metaleiste über der Kopfzeile."
+          "$ref": "frontmatter.schema.json#/definitions/sprachtext",
+          "description": "Ein Satz unter dem Site-Titel in der linken Spalte. STANDARD: keiner. Nicht zu verwechseln mit `brand.tagline`, der Zeile in der Metaleiste über der Kopfzeile. MEHRSPRACHIG: auch als Sprachkarte."
         },
         "legal": {
           "type": "object",
@@ -284,12 +494,12 @@
           "description": "Rechtliche Verweise in der Schlusszeile. STANDARD: keine – dann zeigt die Zeile nur das Copyright.",
           "properties": {
             "imprint": {
-              "type": "string",
-              "description": "Ziel des Impressum-Links."
+              "$ref": "frontmatter.schema.json#/definitions/sprachtext",
+              "description": "Ziel des Impressum-Links. MEHRSPRACHIG: auch als Sprachkarte – Rechtstexte liegen je Sprache unter eigener Adresse."
             },
             "privacy": {
-              "type": "string",
-              "description": "Ziel des Datenschutz-Links."
+              "$ref": "frontmatter.schema.json#/definitions/sprachtext",
+              "description": "Ziel des Datenschutz-Links. MEHRSPRACHIG: auch als Sprachkarte – Rechtstexte liegen je Sprache unter eigener Adresse."
             }
           }
         },
@@ -299,9 +509,8 @@
           "description": "Rechte Spalte der Fußzeile. STANDARD: keine – ohne `items` wird die Spalte gar nicht gerendert.",
           "properties": {
             "title": {
-              "type": "string",
-              "default": "Weitere Informationen",
-              "description": "Überschrift der Spalte."
+              "$ref": "frontmatter.schema.json#/definitions/sprachtext",
+              "description": "Überschrift der Spalte. MEHRSPRACHIG: auch als Sprachkarte."
             },
             "items": {
               "type": "array",
@@ -367,6 +576,9 @@
                     },
                     "qr": {
                       "$ref": "frontmatter.schema.json#/properties/toolbar/properties/qr"
+                    },
+                    "lang": {
+                      "$ref": "frontmatter.schema.json#/properties/toolbar/properties/lang"
                     }
                   }
                 }
@@ -387,6 +599,9 @@
                     },
                     "qr": {
                       "$ref": "frontmatter.schema.json#/properties/toolbar/properties/qr"
+                    },
+                    "lang": {
+                      "$ref": "frontmatter.schema.json#/properties/toolbar/properties/lang"
                     }
                   }
                 }
@@ -404,6 +619,9 @@
                   "properties": {
                     "qr": {
                       "$ref": "frontmatter.schema.json#/properties/toolbar/properties/qr"
+                    },
+                    "lang": {
+                      "$ref": "frontmatter.schema.json#/properties/toolbar/properties/lang"
                     }
                   }
                 }
@@ -433,6 +651,9 @@
             },
             "qr": {
               "$ref": "frontmatter.schema.json#/properties/toolbar/properties/qr"
+            },
+            "lang": {
+              "$ref": "frontmatter.schema.json#/properties/toolbar/properties/lang"
             }
           }
         }
@@ -451,7 +672,13 @@
           "required": [
             "url"
           ],
-          "description": "gewöhnlicher Verweis"
+          "description": "gewöhnlicher Verweis (`url`)"
+        },
+        {
+          "required": [
+            "page"
+          ],
+          "description": "Verweis auf eine Seite dieser Site (`page`)"
         },
         {
           "required": [
@@ -468,6 +695,9 @@
         "url": {
           "$ref": "frontmatter.schema.json#/definitions/verweis/properties/url"
         },
+        "page": {
+          "$ref": "frontmatter.schema.json#/definitions/seitenverweis"
+        },
         "icon": {
           "$ref": "frontmatter.schema.json#/definitions/verweis/properties/icon"
         },
@@ -477,10 +707,19 @@
         "children": {
           "type": "array",
           "minItems": 1,
-          "description": "Die Einträge des Untermenüs – gewöhnliche Verweise, ohne weitere Ebene.",
+          "description": "Die Einträge des Untermenüs. Sie dürfen ihrerseits `children` tragen – bis zu DREI Ebenen insgesamt. Wie die dritte Ebene erscheint, steuert `menu` am Eintrag der zweiten.",
           "items": {
-            "$ref": "frontmatter.schema.json#/definitions/verweis"
+            "$ref": "#/definitions/navEintrag"
           }
+        },
+        "menu": {
+          "type": "string",
+          "enum": [
+            "flyout",
+            "embedded"
+          ],
+          "default": "flyout",
+          "description": "Nur bei einem Eintrag der ZWEITEN Ebene mit `children`: wie sein Untermenü erscheint. `flyout` fährt am Schreibtisch zur Seite aus (Standard), `embedded` stellt die Kinder IM Menü dar, abgetrennt durch einen Querstrich, mit dem Titel als Überschrift. Auf der DRITTEN Ebene wird der Schlüssel nicht gelesen – dort ist es immer `embedded`, weil ein viertes Aufklappmenü nicht mehr zu treffen wäre."
         }
       }
     },

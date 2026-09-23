@@ -70,7 +70,16 @@
   color: var(--avd-academy-color-ink-muted);
   white-space: nowrap;
 }
-.avd-academy-sim__tools { display: flex; align-items: center; gap: var(--avd-academy-space-2); }
+/* Werkzeuggruppe: positioniert nur – wie die Knöpfe darin AUSSEHEN, steht in
+   components.css (`.avd-academy-tool`). Dieselben Variablen wie in der
+   Präsentation, damit beide Kopfleisten gleich aussehen. */
+.avd-academy-sim__tools {
+  display: flex; align-items: center; gap: var(--avd-academy-space-2);
+  --avd-academy-tool-size: 2rem;
+  --avd-academy-tool-glyph: 1rem;
+  --avd-academy-tool-ink: var(--avd-academy-color-ink-muted);
+  --avd-academy-tool-ink-hover: var(--avd-academy-color-accent);
+}
 .avd-academy-sim__tools .avd-academy-qr { --avd-academy-qr-size: 2rem; }
 .avd-academy-sim__back {
   border: 0;
@@ -84,21 +93,6 @@
 }
 .avd-academy-sim__back[hidden] { display: none; }
 .avd-academy-sim__back:hover { color: var(--avd-academy-color-accent); }
-.avd-academy-sim__tool {
-  border: 1px solid var(--avd-academy-color-border);
-  background: transparent;
-  color: var(--avd-academy-color-ink-muted);
-  border-radius: var(--avd-academy-radius);
-  width: 2rem; height: 2rem;
-  line-height: 1;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: color var(--avd-academy-transition), border-color var(--avd-academy-transition);
-}
-.avd-academy-sim__tool:hover {
-  color: var(--avd-academy-color-accent);
-  border-color: var(--avd-academy-color-accent);
-}
 
 /* --- Bühne + Erklärspalte ---------------------------------------------------
    Die Erklärspalte ist bewusst SCHMAL und fest: Sie trägt einen Gedanken, nicht
@@ -591,11 +585,24 @@
   border-color: color-mix(in srgb, var(--avd-academy-sim-ton) 55%, transparent);
   background: color-mix(in srgb, var(--avd-academy-sim-ton) 8%, var(--avd-academy-color-bg-subtle));
 }
+/* Der Ton als SCHRIFT ist etwas anderes als der Ton als Streifen.
+   Die Überschrift stand im vollen Ton auf einer Fläche aus 8 % desselben Tons.
+   Im Dark-Theme geht das auf, weil die Töne dort aufgehellt werden – im
+   Light-Theme stand der rohe Ton auf seiner eigenen blassen Tönung: Ton 3 (Gold)
+   ergab 1,96:1. Dieselbe Regel bestand dabei mit Ton 1 (Slate) bei 8,16:1 – man
+   sieht den Fehler also nur, wenn die Tafel zufällig den falschen Ton trägt.
+
+   Die Schriftfassung wird deshalb zum Fließtext hin gemischt. Weil
+   `--avd-academy-color-ink` mit dem Farbschema kippt, trägt derselbe Ausdruck in
+   beiden Schemata: im Light-Theme dunkelt er den Ton ab, im Dark-Theme hellt er
+   ihn weiter auf. 35 % gemessen über alle vier Töne: 5,06–8,21:1 hell,
+   8,27–9,15:1 dunkel. Der Rahmen behält den vollen Ton – die Wiedererkennung
+   über Szenarien hinweg hängt an ihm, nicht an der Überschrift. */
 .avd-academy-sim-panel--ton-1 .avd-academy-sim-panel__title,
 .avd-academy-sim-panel--ton-3 .avd-academy-sim-panel__title,
 .avd-academy-sim-panel--ton-4 .avd-academy-sim-panel__title,
 .avd-academy-sim-panel--ton-alert .avd-academy-sim-panel__title {
-  color: var(--avd-academy-sim-ton);
+  color: color-mix(in srgb, var(--avd-academy-sim-ton) 35%, var(--avd-academy-color-ink));
 }
 /* Der Ton weicht, wenn die Tafel etwas meldet – `is-active`/`is-error` sind
    Zustände und müssen lauter sein als die Zuordnung. */
@@ -881,7 +888,7 @@
   .avd-academy-sim__tools { margin-left: auto; }
   .avd-academy-sim__tools .avd-academy-qr { --avd-academy-qr-print: 20mm; }
   .avd-academy-sim__back,
-  .avd-academy-sim__tool,
+  .avd-academy-tool,
   .avd-academy-sim__progress,
   .avd-academy-sim__controls,
   .avd-academy-sim__speed-menu,
